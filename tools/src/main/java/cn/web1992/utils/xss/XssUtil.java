@@ -1,12 +1,12 @@
-package xss;
+package cn.web1992.utils.xss;
 
 /**
  * Xss工具类，主要对Xss攻击非法字符进行过滤
  *                       
  * @Filename: XssUtil.java
  * @Version: 1.0
- * @Author: 王朋
- * @Email: wpjava@163.com
+ * @Author:
+ * @Email:
  *
  */
 public class XssUtil {

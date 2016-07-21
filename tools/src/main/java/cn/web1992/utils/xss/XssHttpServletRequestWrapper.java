@@ -1,4 +1,4 @@
-package xss;
+package cn.web1992.utils.xss;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequestWrapper;
  *                       
  * @Filename: XssHttpServletRequestWrapper.java
  * @Version: 1.0
- * @Author: 王朋
- * @Email: wpjava@163.com
+ * @Author:
+ * @Email:
  *
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {

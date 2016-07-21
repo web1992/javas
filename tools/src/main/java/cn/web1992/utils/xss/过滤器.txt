@@ -1,9 +1,9 @@
-1,вВсц 
-	©ирт╧Щбкhtml╠Йг╘
+1,Д╫°Г■╗
+	Е▐╞Д╩╔Х©┤Ф╩╓htmlФ═┤Г╜╬
 
-	
-2,еДжцё╨
-	тзweb.xml лМ╪схГобеДжц
+
+2,И┘█Г╫╝О╪ 
+	Е°╗web.xml Ф╥╩Е┼═Е╕┌Д╦▀И┘█Г╫╝
 	<filter>
 		<filter-name>XssFilter</filter-name>
 		<filter-class>xss.XssFilter</filter-class>
@@ -13,4 +13,4 @@
 		<url-pattern>/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
-	
+

@@ -1,4 +1,4 @@
-package xss;
+package cn.web1992.utils.xss;
 
 import java.io.IOException;
 
@@ -15,19 +15,19 @@ import javax.servlet.http.HttpServletRequest;
  *                       
  * @Filename: XssFilter.java
  * @Version: 1.0
- * @Author: 王朋
- * @Email: wpjava@163.com
+ * @Author:
+ * @Email:
  *
  */
 public class XssFilter implements Filter {
     FilterConfig filterConfig;
 
-    @Override
+    //@Override
     public void init(FilterConfig filterConfig) throws ServletException {
         this.filterConfig = filterConfig;
     }
 
-    @Override
+    //@Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
                                                                                              throws IOException,
                                                                                              ServletException {
@@ -43,7 +43,7 @@ public class XssFilter implements Filter {
         chain.doFilter(new XssHttpServletRequestWrapper(httpServletRequest), response);
     }
 
-    @Override
+    //@Override
     public void destroy() {
         this.filterConfig = null;
     }
