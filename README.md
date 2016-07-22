@@ -10,6 +10,7 @@
 	tools	  # 工具类项目，提供各种快捷开发的工具
 
 2. 项目运行
+
 	cd java_note/app/
 
 	mvn install jetty:run
