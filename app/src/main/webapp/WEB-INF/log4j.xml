@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- ConsoleAppender 会把日志都输出到控制台，如果是web容器，日志不进行每日滚动，
+         会造成日志文件过大，建议生成环境关闭此控制台日志，使用log4j
+     -->
     <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
