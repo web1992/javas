@@ -11,4 +11,14 @@
         <param-value>WEB-INF/log4j.xml</param-value>
     </context-param>
 
+    <!-- 防注入过滤器 -->
+    <filter>
+        <filter-name>xss</filter-name>
+        <filter-class>cn.web1992.utils.xss.XssFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>xss</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
 </web-app>
