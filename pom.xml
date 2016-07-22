@@ -8,9 +8,49 @@
     <artifactId>java_note</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>tools</module>
-    </modules>
+
+
+    <properties>
+        <dubbox_version>2.8.4</dubbox_version>
+        <spring_version>4.1.1.RELEASE</spring_version>
+        <slf4j_version>1.6.1</slf4j_version>
+        <aspectj_version>1.7.4</aspectj_version>
+        <tomcat_embed_version>8.0.11</tomcat_embed_version>
+        <resteasy_version>3.0.7.Final</resteasy_version>
+    </properties>
+
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <log4j_path>/data/logs/app/</log4j_path>
+            </properties>
+            <build>
+
+            </build>
+        </profile>
+
+        <profile>
+            <id>www</id>
+            <properties>
+                <log4j_path>/data/logs/app/</log4j_path>
+            </properties>
+            <build>
+
+            </build>
+        </profile>
+
+        <profile>
+            <id>test</id>
+            <properties>
+                <log4j_path>/data/logs/app/</log4j_path>
+            </properties>
+            <build>
+
+            </build>
+        </profile>
+    </profiles>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
@@ -19,6 +59,68 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring_version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <!-- jetty 依赖这个log4j  -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
     </dependencies>
+
+
+    <build>
+        <finalName>ideasimple</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.4.2</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <!-- 元配置文件的目录，相对于pom.xml文件的路径 -->
+                            <directory>src/main/webapp/WEB-INF</directory>
+                            <!-- 是否过滤文件，也就是是否启动auto-config的功能 -->
+                            <filtering>true</filtering>
+                            <!-- 目标路径 -->
+                            <targetPath>WEB-INF</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>tools</module>
+        <module>app</module>
+    </modules>
+
 
 </project>
