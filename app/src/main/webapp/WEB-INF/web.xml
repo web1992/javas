@@ -108,7 +108,7 @@
         <url-pattern>*.vm</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>index.vm</welcome-file>
+        <welcome-file>/</welcome-file>
     </welcome-file-list>
 
 </web-app>
