@@ -37,6 +37,10 @@
     
         Hello World! jetty
 
-3. 
- 
+3. 发布的版本
+
+    > [1.0.0](https://github.com/web1992/java_note/releases/tag/1.0.0) 
+    > 集成简单的项目骨架，maven + spring mvc + jetty + velocity
+    
+    
 4.   
