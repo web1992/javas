@@ -220,6 +220,7 @@
         <module>app</module>
         <module>app_assembly</module>
         <module>app_client</module>
+        <module>app_jetty</module>
     </modules>
 
 
