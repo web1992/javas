@@ -12,5 +12,10 @@
     <groupId>cn.web1992</groupId>
     <artifactId>app_tools</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+    </dependencies>
 </project>
