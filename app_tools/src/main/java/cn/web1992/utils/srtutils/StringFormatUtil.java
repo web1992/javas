@@ -12,7 +12,7 @@ public class StringFormatUtil {
 
     private final static  Formatter format = new Formatter();
 
-    public static String format(String str,String ... vars){
+    public static String format(String str,Object ... vars){
        return format.format(str,vars).toString();
     }
 
