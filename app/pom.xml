@@ -12,6 +12,14 @@
     <name>app</name>
     <url>http://maven.apache.org</url>
 
+<dependencies>
+    <!-- Dubbox -->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>${dubbox_version}</version>
+    </dependency>
+</dependencies>
 
     <build>
         <finalName>app</finalName>

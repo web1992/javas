@@ -57,6 +57,12 @@
     </profiles>
 
     <dependencies>
+        <!-- Dubbox -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbox_version}</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -221,6 +227,8 @@
         <module>app_assembly</module>
         <module>app_client</module>
         <module>app_jetty</module>
+        <module>app_service</module>
+        <module>app_service_impl</module>
     </modules>
 
 
