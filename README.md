@@ -27,23 +27,46 @@
     
         mvn -DskipTests=true clean install -P dev
     
-        cd  app_jetty
+        cd  app_jetty_dubbo_provider
         
-        mvn clean install jetty:run
+        jetty:run
         
-        在浏览器输入： http://127.0.0.1:8081/
+        在浏览器输入： http://127.0.0.1:8082/
     
         出现如下：
     
+        200
+        说明 `dubbo` 服务提供者启动成功
+        
+        cd app_jetty
+        
+        jetty:run
+        
+        在浏览器输入： http://127.0.0.1:8081/
+        
+        出现如下：
+            
         Hello World! jetty
+        
+        Hi i from session.
+        
+        说明 `dubbo` 服务消费者启动成功
+        
+        
 
 3. 发布的版本
 
     > [1.0.0][v1.0.0]
     > 集成简单的项目骨架，maven + spring mvc + jetty + velocity
     
+     > [2.0.0][v2.0.0]
+     > 此版本集成 dubbo, maven + dubbo + spring mvc + jetty + velocity
+     > [这里可以找到dubbo][dubbo]
+     
     
 4.   
 
 
 [v1.0.0]:https://github.com/web1992/java_note/releases/tag/1.0.0
+[v2.0.0]:https://github.com/web1992/java_note/releases/tag/1.0.0
+[dubbo]:https://github.com/alibaba/dubbo
