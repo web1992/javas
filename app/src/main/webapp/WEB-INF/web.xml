@@ -32,6 +32,9 @@
         <param-value>
             classpath:META-INF/spring/servlet-context.xml,
             classpath:META-INF/spring/spring-context.xml,
+            classpath:META-INF/spring/dubbo-consumer.xml,
+            <!--classpath:META-INF/spring/dubbo-provider.xml,-->
+            classpath:META-INF/data-source/root-context.xml
         </param-value>
     </context-param>
     <listener>

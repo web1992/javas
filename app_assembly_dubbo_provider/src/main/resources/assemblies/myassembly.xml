@@ -20,7 +20,7 @@
         <!--</fileSet>-->
         <fileSet>
             <useDefaultExcludes>true</useDefaultExcludes>
-            <directory>target/${assembly_client_name}/webapp</directory>
+            <directory>target/${assembly_service_name}/webapp</directory>
             <outputDirectory>/</outputDirectory>
         </fileSet>
     </fileSets>

@@ -13,5 +13,11 @@
     <artifactId>app_client</artifactId>
     <packaging>jar</packaging>
 
-
+<dependencies>
+    <dependency>
+        <groupId>cn.web1992</groupId>
+        <artifactId>app_service</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+</dependencies>
 </project>

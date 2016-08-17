@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://code.alibabatech.com/schema/dubbo
                            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<dubbo:consumer check="false" validation="true" version="1.0.0" retries="0" timeout="5000" />
 
+    <!--dubbo 消费者的通用配置 -->
+    <dubbo:consumer check="false" validation="true" version="${dubbo_app_service_version}" retries="0" timeout="5000"/>
+
+    <dubbo:reference id="helloWorldService" interface="cn.web1992.api.HelloWorldService"/>
+
+    <dubbo:application name="${client_app_name}"/>
+
+    <dubbo:registry protocol="zookeeper" address="${zookeeper_service_url}"/>
 
 </beans>

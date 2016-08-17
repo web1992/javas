@@ -17,7 +17,6 @@
         <aspectj_version>1.7.4</aspectj_version>
         <tomcat_embed_version>8.0.11</tomcat_embed_version>
         <resteasy_version>3.0.7.Final</resteasy_version>
-        <assembly.name>assembly_app_war</assembly.name>
     </properties>
 
 
@@ -26,7 +25,17 @@
             <id>dev</id>
             <properties>
                 <log4j_path>/data/logs/app</log4j_path>
-                <war_file_name>app_dev</war_file_name>
+                <assembly_service_name>app_service</assembly_service_name>
+                <assembly_client_name>app_client</assembly_client_name>
+                <!-- dubbo 服务注册&消费的的地址 -->
+                <zookeeper_service_url>101.200.235.63:2181,101.200.235.63:2182,101.200.235.63:2183</zookeeper_service_url>
+                <dubbo_app_service_port>4020</dubbo_app_service_port>
+                <!-- dubbo 服务的版本，可用来更新服务 -->
+                <dubbo_app_service_version>1.0.0</dubbo_app_service_version>
+                <!-- 客户端消费者应用的名字 -->
+                <client_app_name>app-client</client_app_name>
+                <!-- 服务提供者应用的名字 -->
+                <service_app_name>app-service</service_app_name>
             </properties>
             <build>
 
@@ -36,8 +45,18 @@
         <profile>
             <id>www</id>
             <properties>
+                <assembly_service_name>app_service_war</assembly_service_name>
+                <assembly_client_name>app_client_war</assembly_client_name>
                 <log4j_path>/data/logs/app</log4j_path>
-                <war_file_name>app_www</war_file_name>
+                <!-- dubbo 服务注册&消费的的地址 -->
+                <zookeeper_service_url>101.200.235.63:2181,101.200.235.63:2182,101.200.235.63:2183</zookeeper_service_url>
+                <dubbo_app_service_port>4020</dubbo_app_service_port>
+                <!-- dubbo 服务的版本，可用来更新服务 -->
+                <dubbo_app_service_version>1.0.0</dubbo_app_service_version>
+                <!-- 客户端消费者应用的名字 -->
+                <client_app_name>app-client</client_app_name>
+                <!-- 服务提供者应用的名字 -->
+                <service_app_name>app-service</service_app_name>
             </properties>
             <build>
 
@@ -47,8 +66,18 @@
         <profile>
             <id>test</id>
             <properties>
+                <assembly_service_name>app_service_war</assembly_service_name>
+                <assembly_client_name>app_client_war</assembly_client_name>
                 <log4j_path>/data/logs/app</log4j_path>
-                <war_file_name>app_test</war_file_name>
+                <!-- dubbo 服务注册&消费的的地址 -->
+                <zookeeper_service_url>101.200.235.63:2181,101.200.235.63:2182,101.200.235.63:2183</zookeeper_service_url>
+                <dubbo_app_service_port>4020</dubbo_app_service_port>
+                <!-- dubbo 服务的版本，可用来更新服务 -->
+                <dubbo_app_service_version>1.0.0</dubbo_app_service_version>
+                <!-- 客户端消费者应用的名字 -->
+                <client_app_name>app-client</client_app_name>
+                <!-- 服务提供者应用的名字 -->
+                <service_app_name>app-service</service_app_name>
             </properties>
             <build>
 
@@ -57,12 +86,59 @@
     </profiles>
 
     <dependencies>
+        <!-- Validator -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+        </dependency>
+        <!-- Zkclient -->
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.8</version>
+        </dependency>
         <!-- Dubbox -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
             <version>${dubbox_version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.15.0-GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>3.7.0.Final</version>
+        </dependency>
+        <dependency>
+            <artifactId>zookeeper</artifactId>
+            <groupId>org.apache.zookeeper</groupId>
+            <version>3.4.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -229,6 +305,8 @@
         <module>app_jetty</module>
         <module>app_service</module>
         <module>app_service_impl</module>
+        <module>app_jetty_dubbo_provider</module>
+        <module>app_assembly_dubbo_provider</module>
     </modules>
 
 
