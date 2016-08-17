@@ -329,6 +329,10 @@
                                     <groupId>javax.servlet</groupId>
                                     <artifactId>jstl</artifactId>
                                 </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.eclipse.jetty</groupId>
+                                    <artifactId>jetty-util</artifactId>
+                                </artifactItem>
                                 <!-- 在这里添加新的jar依赖，会被copy到WEB-INF/lib目录下面 -->
                             </artifactItems>
                             <outputDirectory>
