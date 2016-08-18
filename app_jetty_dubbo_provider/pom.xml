@@ -30,7 +30,8 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.3.7.v20160115</version>
                 <configuration>
-                    <webAppSourceDirectory>../app_assembly_dubbo_provider/target/${assembly_service_name}/webapp</webAppSourceDirectory>
+                    <!--<webAppSourceDirectory>../app_assembly_dubbo_provider/target/${assembly_service_name}/webapp</webAppSourceDirectory>-->
+                    <webAppSourceDirectory>../app_assembly_dubbo_provider/target/app_service/webapp</webAppSourceDirectory>
                     <scanIntervalSeconds>3</scanIntervalSeconds>
                     <httpConnector>
                         <port>8082</port>

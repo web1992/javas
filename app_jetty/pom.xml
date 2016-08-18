@@ -33,7 +33,8 @@
                     <webAppConfig>
                         <defaultsDescriptor>src/main/resources/jetty/webdefault.xml</defaultsDescriptor>
                     </webAppConfig>
-                    <webAppSourceDirectory>../app_assembly/target/${assembly_client_name}/webapp</webAppSourceDirectory>
+                    <!--<webAppSourceDirectory>../app_assembly/target/${assembly_client_name}/webapp</webAppSourceDirectory>-->
+                    <webAppSourceDirectory>../app_assembly/target/app_client/webapp</webAppSourceDirectory>
                     <scanIntervalSeconds>3</scanIntervalSeconds>
                     <httpConnector>
                         <port>8081</port>
