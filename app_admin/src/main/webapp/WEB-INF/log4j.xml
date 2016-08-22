@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- ConsoleAppender 会把日志都输出到控制台，如果是web容器，日志不进行每日滚动，
+         会造成日志文件过大，建议生成环境关闭此控制台日志，使用log4j
+     -->
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t]  [%p] [%l] - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="ERROR"/>
+            <param name="LevelMin" value="INFO"/>
+        </filter>
+    </appender>
+    <appender name="DEBUG" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/logs/h5_haha/debug.log"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t]  [%p] [%l] - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="DEBUG"/>
+            <param name="LevelMin" value="DEBUG"/>
+        </filter>
+    </appender>
+    <appender name="INFO" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/logs/h5_haha/info.log"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t]  [%p] [%l] - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="INFO"/>
+            <param name="LevelMin" value="INFO"/>
+        </filter>
+    </appender>
+    <appender name="WARN" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/logs/h5_haha/warn.log"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t]  [%p] [%l] - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="WARN"/>
+            <param name="LevelMin" value="WARN"/>
+        </filter>
+    </appender>
+    <appender name="ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/logs/h5_haha/error.log"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t]  [%p] [%l] - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="ERROR"/>
+            <param name="LevelMin" value="ERROR"/>
+        </filter>
+    </appender>
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t]  [%p] [%l] - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="ERROR"/>
+            <param name="LevelMin" value="INFO"/>
+        </filter>
+    </appender>
+
+    <root>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="INFO"/>
+        <appender-ref ref="DEBUG"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="ERROR"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</log4j:configuration>

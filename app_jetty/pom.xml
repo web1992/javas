@@ -36,7 +36,7 @@
                     <webAppSourceDirectory>../app_assembly/target/assembly_app_war/webapp</webAppSourceDirectory>
                     <scanIntervalSeconds>3</scanIntervalSeconds>
                     <httpConnector>
-                        <port>8081</port>
+                        <port>8581</port>
                     </httpConnector>
                     <!--mvn jetty:run -Djetty.reload=automatic -Djetty.scanIntervalSeconds=10-->
                     <!--<reload>manual</reload>-->
