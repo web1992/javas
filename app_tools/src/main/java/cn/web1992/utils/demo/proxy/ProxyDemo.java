@@ -1,4 +1,4 @@
-package cn.web1992.utils.demo;
+package cn.web1992.utils.demo.proxy;
 
 /**
  * Created by web1992 on 2016/8/25.

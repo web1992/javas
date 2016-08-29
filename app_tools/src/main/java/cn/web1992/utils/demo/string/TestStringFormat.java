@@ -1,4 +1,4 @@
-package cn.web1992.utils.demo;
+package cn.web1992.utils.demo.string;
 
 import cn.web1992.utils.srtutils.StringFormatUtil;
 
