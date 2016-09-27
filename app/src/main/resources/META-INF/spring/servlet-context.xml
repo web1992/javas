@@ -24,7 +24,7 @@
     <context:component-scan base-package="cn.web1992.controller" />
 
     <!-- 项目内静态资源过滤配置，配置内容不会被DispatcherServlet捕捉 -->
-    <resources mapping="/static/**" location="/static/"/>
+    <resources mapping="/statics/**" location="WEB-INF/statics/"/>
     <!-- Controller 返回文本内容支持 -->
     <beans:bean id="stringHttpMessageConverter"
                 class="org.springframework.http.converter.StringHttpMessageConverter">
