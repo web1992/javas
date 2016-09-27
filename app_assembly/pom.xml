@@ -11,19 +11,32 @@
 
     <groupId>cn.web1992</groupId>
     <artifactId>app_assembly</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <dependencies>
-    <dependency>
-        <!-- 这个不能少，否则在copy jar包的时候，会报错 -->
-        <groupId>cn.web1992</groupId>
-        <artifactId>app_tools</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </dependency>
+        <dependency>
+            <!-- 这个不能少，否则在copy jar包的时候，会报错 -->
+            <groupId>cn.web1992</groupId>
+            <artifactId>app_tools</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <!-- 这个不能少，否则在copy jar包的时候，会报错 -->
             <groupId>cn.web1992</groupId>
             <artifactId>app_client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <!-- 这个不能少，否则在copy jar包的时候，会报错 -->
+            <groupId>cn.web1992</groupId>
+            <artifactId>app_service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <!-- 这个不能少，否则在copy jar包的时候，会报错 -->
+            <groupId>cn.web1992</groupId>
+            <artifactId>app_service_impl</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
@@ -213,6 +226,14 @@
                         </goals>
                         <configuration>
                             <artifactItems>
+                                <artifactItem>
+                                    <groupId>cn.web1992</groupId>
+                                    <artifactId>app_service</artifactId>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>cn.web1992</groupId>
+                                    <artifactId>app_service_impl</artifactId>
+                                </artifactItem>
                                 <artifactItem>
                                     <groupId>cn.web1992</groupId>
                                     <artifactId>app_tools</artifactId>

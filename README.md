@@ -43,7 +43,11 @@
     > 集成简单的项目骨架，maven + spring mvc + jetty + velocity
     
     
-4.   
+4.  注意事项
+    > a)
+       maven新的模块，需要在`app_assembly`的`artifactItems`中添加`artifactItem`在打包时
+       新增的jar包才会在lib 目录下面
+
 
 
 [v1.0.0]:https://github.com/web1992/java_note/releases/tag/1.0.0

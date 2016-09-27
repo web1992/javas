@@ -41,7 +41,7 @@
     <!-- 模板信息设置 -->
     <beans:bean id="velocityConfigurer"
                 class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-        <beans:property name="resourceLoaderPath" value="WEB-INF/views"/><!-- 設置模板防止位置-->
+        <beans:property name="resourceLoaderPath" value="WEB-INF/views" /><!--设置模板位置 -->
         <beans:property name="velocityProperties">
             <beans:props>
                 <beans:prop key="input.encoding">UTF-8</beans:prop><!-- 指定模板引擎进行模板处理的编码 -->
@@ -50,9 +50,17 @@
         </beans:property>
     </beans:bean>
 
-    <beans:bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <beans:property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <beans:property name="prefix" value="/WEB-INF/views/"/>
-        <beans:property name="suffix" value=".vm"/>
+    <!-- 设置视图解析工具 -->
+    <beans:bean id="viewResolver"
+                class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <beans:property name="prefix" value="/" />
+        <beans:property name="suffix" value=".vm" />
+        <!-- 避免乱码 -->
+        <beans:property name="contentType" value="text/html;charset=UTF-8" />
+        <!--是否开放request属性 -->
+        <beans:property name="exposeRequestAttributes" value="true" />
+        <!--指定layout文件 -->
+        <beans:property name="layoutUrl" value="layout/default.vm" />
     </beans:bean>
+
 </beans:beans>
