@@ -15,7 +15,7 @@
         </filter>
     </appender>
     <appender name="DEBUG" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/data/logs/h5_haha/debug.log"/>
+        <param name="File" value="/data/logs/app/debug.log"/>
         <param name="Append" value="true"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -27,7 +27,7 @@
         </filter>
     </appender>
     <appender name="INFO" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/data/logs/h5_haha/info.log"/>
+        <param name="File" value="/data/logs/app/info.log"/>
         <param name="Append" value="true"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -39,7 +39,7 @@
         </filter>
     </appender>
     <appender name="WARN" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/data/logs/h5_haha/warn.log"/>
+        <param name="File" value="/data/logs/app/warn.log"/>
         <param name="Append" value="true"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -51,7 +51,7 @@
         </filter>
     </appender>
     <appender name="ERROR" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/data/logs/h5_haha/error.log"/>
+        <param name="File" value="/data/logs/app/error.log"/>
         <param name="Append" value="true"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -64,7 +64,6 @@
     </appender>
 
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
-        <param name="Append" value="true"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
                    value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t]  [%p] [%l] - %m%n"/>
@@ -81,6 +80,5 @@
         <appender-ref ref="DEBUG"/>
         <appender-ref ref="WARN"/>
         <appender-ref ref="ERROR"/>
-        <appender-ref ref="CONSOLE"/>
     </root>
 </log4j:configuration>

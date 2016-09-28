@@ -63,4 +63,12 @@
         <beans:property name="layoutUrl" value="layout/default.vm" />
     </beans:bean>
 
+    
+    <interceptors>
+        <interceptor>
+            <mapping path="/*"/>
+            <exclude-mapping path="/statics/**"/>
+            <beans:bean class="cn.web1992.utils.demo.interceptor.DemoHandlerInterceptor"/>
+        </interceptor>
+    </interceptors>
 </beans:beans>

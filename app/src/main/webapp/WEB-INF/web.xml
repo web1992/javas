@@ -26,6 +26,30 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
+
+    <filter>
+        <filter-name>demo</filter-name>
+        <filter-class>cn.web1992.utils.demo.filters.DemoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>demo</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <filter>
+        <filter-name>demo2</filter-name>
+        <filter-class>cn.web1992.utils.demo.filters.DemoFilter2</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>demo2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
+
     <!-- spring 配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -37,6 +61,11 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <listener>
+        <listener-class>cn.web1992.utils.demo.listener.DemoServletContextListener</listener-class>
+    </listener>
+
 
 
     <!-- 解决HTTP PUT请求Spring无法获取请求参数的问题 -->
