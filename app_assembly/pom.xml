@@ -252,6 +252,10 @@
                                 </artifactItem>
                                 <!-- Spring依赖 -->
                                 <artifactItem>
+                                    <groupId>javax.validation</groupId>
+                                    <artifactId>validation-api</artifactId>
+                                </artifactItem>
+                                <artifactItem>
                                     <groupId>org.springframework</groupId>
                                     <artifactId>spring-webmvc</artifactId>
                                 </artifactItem>
