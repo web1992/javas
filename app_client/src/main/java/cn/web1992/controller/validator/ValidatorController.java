@@ -23,6 +23,6 @@ public class ValidatorController {
         if (bindingResult.hasErrors()) {
             return String.format("form error=%s",bindingResult.hasErrors());
         }
-        return String.format("hello name=%s,age=",myForm.getName(),myForm.getAge());
+        return String.format("hello name=%s,age=%s",myForm.getName(),myForm.getAge());
     }
 }
