@@ -16,6 +16,6 @@ public class PathVariableController {
     @RequestMapping(value = "/path/{name}")
     @ResponseBody
     public String pathVariable(@PathVariable String name) {
-        return String.format("name=%s,age+5s", name);
+        return String.format("name=%s", name);
     }
 }
