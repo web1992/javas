@@ -8,6 +8,7 @@ import java.util.function.Predicate;
  * Created by web1992 on 2016/10/19.
  *
  * @desc java8 match demo
+ * @link http://www.concretepage.com/java/jdk-8/java-8-stream-allmatch-anymatch-nonematch-example
  * 三个方法测试
  * allMatch
  * anyMatch
