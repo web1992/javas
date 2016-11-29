@@ -238,6 +238,7 @@
         <module>app_admin</module>
         <module>app_service</module>
         <module>app_service_impl</module>
+        <module>app_dao</module>
     </modules>
 
 
