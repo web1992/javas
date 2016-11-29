@@ -16,7 +16,6 @@
     </properties>
 
 
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -24,7 +23,72 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-tools</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <!-- Spring依赖 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
+        <!-- jetty 依赖这个log4j  -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
     </dependencies>
+
+
     <build>
         <finalName>${assembly_name}</finalName>
         <resources>
@@ -34,14 +98,16 @@
                     <include>**/*.*</include>
                 </includes>
                 <filtering>true</filtering>
+                <targetPath>dataSources</targetPath>
             </resource>
             <resource>
                 <directory>src/main/resources/props</directory>
                 <includes>
                     <include>**/*.*</include>
                 </includes>
-                <!-- src/main/resources/props 文件夹下面的文件的${}会被替换-->
+                <!-- src/main/resources/props 文件夹下面的文件的${ }会被替换-->
                 <filtering>true</filtering>
+                <targetPath>props</targetPath>
             </resource>
             <resource>
                 <directory>src/main/resources/spring</directory>
@@ -50,6 +116,14 @@
                 </includes>
                 <!-- src/main/resources/spring 文件夹下面的文件的${}不会被替换-->
                 <filtering>false</filtering>
+                <targetPath>spring</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/log4j</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <filtering>true</filtering>
             </resource>
         </resources>
         <plugins>
@@ -79,6 +153,7 @@
             <properties>
                 <IS_TEST>true</IS_TEST>
                 <APP_URL>www.web1992.cn</APP_URL>
+                <log4j_path>/data/logs</log4j_path>
             </properties>
         </profile>
         <profile>
@@ -86,6 +161,7 @@
             <properties>
                 <IS_TEST>false</IS_TEST>
                 <APP_URL>www.web1992.cn</APP_URL>
+                <log4j_path>/data/logs</log4j_path>
             </properties>
         </profile>
     </profiles>

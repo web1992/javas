@@ -9,16 +9,9 @@
         http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 
-    <bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath:props/app.properties</value>
-            </list>
-        </property>
-    </bean>
 
-    <bean class="cn.web1992.utils.AppConfig" id="appConfig">
-        <property name="test" value="${is_test}"/>
-    </bean>
+
+    <!-- 配置Controller的包路径 -->
+    <context:component-scan base-package="cn.web1992.controller" />
+
 </beans>
