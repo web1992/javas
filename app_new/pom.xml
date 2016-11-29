@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>java_note</artifactId>
+        <groupId>cn.web1992</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>app_new</artifactId>
+    <packaging>war</packaging>
+    <name>app_new Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <assembly_name>app_new</assembly_name>
+    </properties>
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>${assembly_name}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources/dataSources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/props</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <!-- src/main/resources/props 文件夹下面的文件的${}会被替换-->
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/spring</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <!-- src/main/resources/spring 文件夹下面的文件的${}不会被替换-->
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.7.v20160115</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <IS_TEST>true</IS_TEST>
+                <APP_URL>www.web1992.cn</APP_URL>
+            </properties>
+        </profile>
+        <profile>
+            <id>www</id>
+            <properties>
+                <IS_TEST>false</IS_TEST>
+                <APP_URL>www.web1992.cn</APP_URL>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

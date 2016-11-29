@@ -239,6 +239,7 @@
         <module>app_service</module>
         <module>app_service_impl</module>
         <module>app_dao</module>
+        <module>app_new</module>
     </modules>
 
 
