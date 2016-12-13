@@ -10,6 +10,7 @@ public class TypesInByteBuffer {
         buffer.putInt(30);
         buffer.putLong(7000000000000L);
         buffer.putDouble(Math.PI);
+        buffer.putInt("ABC".length());
         buffer.put("ABC".getBytes());
 
         buffer.flip();
@@ -18,9 +19,15 @@ public class TypesInByteBuffer {
         System.out.println(buffer.getLong());
         System.out.println(buffer.getDouble());
 
-        while (buffer.remaining()>0) {
-            System.out.println( buffer.get() );
+        int bLen = buffer.getInt();
+        byte[] bytes = new byte[bLen];
+
+        for (int i = 0; i < bLen; i++) {
+            byte b = buffer.get();
+            bytes[i] = b;
         }
+
+        System.out.println(new String(bytes));
     }
 
 }
