@@ -1,4 +1,4 @@
-package cn.web1992.utils.demo.java8;
+package cn.web1992.utils.demo.java8.old;
 
 import java.util.Optional;
 import java.util.function.Supplier;

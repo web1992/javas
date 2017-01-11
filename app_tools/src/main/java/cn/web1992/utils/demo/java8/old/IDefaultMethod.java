@@ -1,4 +1,4 @@
-package cn.web1992.utils.demo.java8;
+package cn.web1992.utils.demo.java8.old;
 
 /**
  * Created by Administrator on 2016/11/3.

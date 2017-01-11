@@ -3,11 +3,12 @@ package cn.web1992.utils.demo.java8;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 /**
  * Created by web on 2017/1/9.
  */
-public class LamabdaFilterDemo {
+public class LambdaFilterDemo {
     public static void main(String[] args) {
         List<String> arrays = Arrays.asList("1", "2", "3", "4");
 
