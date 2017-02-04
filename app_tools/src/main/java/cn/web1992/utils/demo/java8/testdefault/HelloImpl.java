@@ -3,7 +3,10 @@ package cn.web1992.utils.demo.java8.testdefault;
 /**
  * @author web1992
  * @deta 2017/2/4
- * @desc
+ * @desc 总结三点：
+ *      1，default 修饰的方法可以被重写
+ *      2，default 只能在接口中使用
+ *      3，可以认为是公有（public）的方法，可以被其他类调用
  */
 public class HelloImpl implements IHello {
 
