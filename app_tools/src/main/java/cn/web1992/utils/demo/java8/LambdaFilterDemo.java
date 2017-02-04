@@ -13,7 +13,7 @@ public class LambdaFilterDemo {
         List<String> arrays = Arrays.asList("1", "2", "3", "4");
 
 
-        Predicate<String> p = (String s) -> s.equals("3");
+        Predicate<String> p = (String s) -> "3".equals(s);
 
 
         filter(arrays, p);
