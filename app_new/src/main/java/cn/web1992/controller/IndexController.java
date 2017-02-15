@@ -17,4 +17,10 @@ public class IndexController {
         return "200";
     }
 
+
+    @RequestMapping(value = {"/index2"},params = {"a=123"})
+    @ResponseBody
+    public String index2() {
+        return "index2";
+    }
 }
