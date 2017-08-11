@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class IndexController {
+public class IndexController3 {
 
     @RequestMapping("/index.html")
     public String render(ModelMap map, HttpServletRequest request) {
