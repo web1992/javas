@@ -1,7 +1,9 @@
 package cn.web1992.controller;
 
+import cn.web1992.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +22,8 @@ public class IndexController {
 	private static Logger LOG = LoggerFactory.getLogger(YsePayNotifyController.class);
 
 
+	@Autowired
+	private UserService service;
 	/**
 	 * 这里让spring 来控制主页，web.xml 的 welcome-file-list  不起作用
 	 *
@@ -29,6 +33,7 @@ public class IndexController {
 	@ResponseBody
 	public String index(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
 		Map<String, String> paramMap = getParamMap(request.getParameterMap());
+		service.sayName();
 		LOG.info("paramMap={}" + paramMap);
 		return "200";
 	}
