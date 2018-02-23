@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -45,6 +48,14 @@ public class IndexController {
 		return "index2";
 	}
 
+	@RequestMapping(value = {"/demo"})
+	@ResponseBody
+	private String demo(){
+		ModelAndView modelAndView = new ModelAndView();
+		List<String> list=new ArrayList<>();
+		modelAndView.addObject(list);
+		return "demo";
+	}
 
 	private Map<String, String> getParamMap(Map<String, String[]> parameterMap) {
 		if (parameterMap.size() > 0) {
