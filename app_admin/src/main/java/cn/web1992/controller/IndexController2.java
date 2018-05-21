@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by web1992 on 2016/8/22.
  *
  * @desc
- */IndexController
+ */
 @Controller
 public class IndexController2 {
 
