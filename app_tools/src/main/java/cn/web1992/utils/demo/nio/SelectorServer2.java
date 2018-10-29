@@ -58,8 +58,8 @@ public class SelectorServer2 {
                     // 服务器，可以关闭客户端的连接
                     // scNew.close();
                     scNew.configureBlocking(false);
-
-                    scNew.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE | SelectionKey.OP_CONNECT);
+                    // 注册selector 设置感兴趣的事件
+                    scNew.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
                 } else if (key.isConnectable()) {
                     System.out.println("I am step 2/3");
                 } else if (key.isReadable()) {
