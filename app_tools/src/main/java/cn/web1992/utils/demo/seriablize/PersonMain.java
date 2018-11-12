@@ -1,8 +1,3 @@
-/**
- * 文件名称:          	PersonMain
- * 版权所有@ 2017-2018 	魔谐(上海)软件有限公司，保留所有权利
- * 编译器:           	JDK1.8
- */
 
 package cn.web1992.utils.demo.seriablize;
 

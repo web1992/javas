@@ -1,15 +1,10 @@
-/**
- * 文件名称:          	Person
- * 版权所有@ 2017-2018 	魔谐(上海)软件有限公司，保留所有权利
- * 编译器:           	JDK1.8
- */
 
 package cn.web1992.utils.demo.seriablize;
 
 import java.io.Serializable;
 
 /**
- * TODO: 文件注释
+ * desc: 文件注释
  * <p>
  * Version		1.0.0
  *
