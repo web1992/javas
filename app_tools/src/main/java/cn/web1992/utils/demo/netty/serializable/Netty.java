@@ -1,4 +1,4 @@
-package cn.web1992.utils.demo.netty;
+package cn.web1992.utils.demo.netty.serializable;
 
 import java.io.Serializable;
 

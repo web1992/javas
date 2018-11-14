@@ -1,4 +1,4 @@
-package cn.web1992.utils.demo.netty;
+package cn.web1992.utils.demo.netty.serializable;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
