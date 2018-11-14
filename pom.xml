@@ -18,6 +18,7 @@
         <tomcat_embed_version>8.0.11</tomcat_embed_version>
         <resteasy_version>3.0.7.Final</resteasy_version>
         <assembly.name>assembly_app_war</assembly.name>
+        <netty.version>4.1.31.Final</netty.version>
     </properties>
 
 
