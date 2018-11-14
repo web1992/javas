@@ -25,7 +25,9 @@ public class NettyClient {
         client.bootstrap();
     }
 
-
+    /**
+     * 启动client
+     */
     public void bootstrap() {
         EventLoopGroup group = new NioEventLoopGroup();
         Bootstrap bootstrap = new Bootstrap();
@@ -57,7 +59,9 @@ public class NettyClient {
 
     }
 
-
+    /**
+     * 负责pipeline的组装
+     */
     final class ChannelInitializerImpl extends ChannelInitializer<Channel> {
         @Override
         protected void initChannel(Channel ch) throws Exception {
@@ -67,7 +71,9 @@ public class NettyClient {
         }
     }
 
-
+    /**
+     * 自定义Encoder
+     */
     final class ClazzToByteEncoder extends ObjectEncoder {
         @Override
         protected void encode(ChannelHandlerContext ctx, Serializable msg, ByteBuf out) throws Exception {

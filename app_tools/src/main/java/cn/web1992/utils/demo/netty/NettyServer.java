@@ -24,7 +24,7 @@ public class NettyServer {
     }
 
     /**
-     * 启动
+     * 启动server
      */
     public void bootstrap() {
         NioEventLoopGroup group = new NioEventLoopGroup();
@@ -55,7 +55,9 @@ public class NettyServer {
         }
     }
 
-
+    /**
+     * 负责pipeline的组装
+     */
     final class ChannelInitializerImpl extends ChannelInitializer<Channel> {
         @Override
         protected void initChannel(Channel ch) throws Exception {
