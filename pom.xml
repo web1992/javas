@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.web1992</groupId>
-    <artifactId>java_note</artifactId>
+    <artifactId>javas</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
 
     <properties>
         <dubbox_version>2.8.4</dubbox_version>
-        <spring_version>4.1.1.RELEASE</spring_version>
+        <spring_version>4.3.9.RELEASE</spring_version>
         <slf4j_version>1.6.1</slf4j_version>
         <aspectj_version>1.7.4</aspectj_version>
         <tomcat_embed_version>8.0.11</tomcat_embed_version>
@@ -59,16 +59,18 @@
     <dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-framework-bom</artifactId>
+            <version>${spring_version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring_version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/log4j/log4j -->
         <!-- jetty 依赖这个log4j  -->
@@ -101,43 +103,6 @@
             <artifactId>spring-test</artifactId>
             <version>${spring_version}</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>${spring_version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>${spring_version}</version>
         </dependency>
 
         <dependency>
@@ -231,16 +196,9 @@
     </build>
 
     <modules>
-        <module>app_tools</module>
+        <module>tools</module>
         <module>app</module>
-        <module>app_assembly</module>
-        <module>app_client</module>
-        <module>app_jetty</module>
-        <module>app_admin</module>
-        <module>app_service</module>
-        <module>app_service_impl</module>
-        <module>app_dao</module>
-        <module>app_new</module>
+        <module>jetty</module>
     </modules>
 
 
