@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -18,13 +19,14 @@ import java.util.stream.Stream;
 public class MainJava8 {
     public static void main(String[] args) {
 
-        Stream.of("one", "two", "three", "four")
+        List<String> collect = Stream.of("one", "two", "three", "four")
                 .filter(e -> e.length() > 3)
                 .peek(e -> System.out.println("Filtered value: " + e))
                 .map(String::toUpperCase)
                 .peek(e -> System.out.println("Mapped value: " + e))
                 .collect(Collectors.toList());
 
+        System.out.println(collect);
 
         String concat = Stream.of("A", "B", "C", "D").reduce(",", String::concat);
 
