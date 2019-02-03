@@ -9,12 +9,11 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
  * 防xss攻击
- *                       
+ *
  * @Filename: XssHttpServletRequestWrapper.java
  * @Version: 1.0
  * @Author:
  * @Email:
- *
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
@@ -24,8 +23,8 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
     public String[] getParameterValues(String parameter) {
         String[] values = super.getParameterValues(parameter);
-        if("description".equals(parameter))
-        	return values;
+        if ("description".equals(parameter))
+            return values;
         if (values == null) {
             return null;
         }
@@ -42,8 +41,8 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
         if (value == null) {
             return value;
         }
-        if("description".equals(parameter))
-        	return value;
+        if ("description".equals(parameter))
+            return value;
         return XssUtil.cleanXSS(value);
     }
 
@@ -63,12 +62,10 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
             value = map.get(key);
             encodeValues = new String[value.length];
             for (int i = 0; i < value.length; i++) {
-            	if("description".equals(key))
-                {
-            		 encodeValues[i] =  value[i];
-                }
-            	else
-                encodeValues[i] = XssUtil.cleanXSS(value[i]);
+                if ("description".equals(key)) {
+                    encodeValues[i] = value[i];
+                } else
+                    encodeValues[i] = XssUtil.cleanXSS(value[i]);
             }
             mapEncoded.put(key, encodeValues);
         }
@@ -78,10 +75,11 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
     public Object getAttribute(String name) {
         Object value = super.getAttribute(name);
         if (value instanceof String) {
-        	if("description".equals(name))
-        	;
-        	else
-            value = XssUtil.cleanXSS((String) value);
+            if ("description".equals(name)) {
+
+            } else {
+                value = XssUtil.cleanXSS((String) value);
+            }
         }
         return value;
     }
