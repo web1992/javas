@@ -3,7 +3,7 @@ package cn.web1992.utils.demo.thread;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class CountDownLtanchTest {
+public class CountDownLatchTest {
     public static void main(String[] args) throws InterruptedException {
 
         CountDownLatch cdl=new CountDownLatch(2);
