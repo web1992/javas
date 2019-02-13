@@ -1,15 +1,15 @@
 package cn.web1992.utils.demo.thread;
 
-import java.io.IOException;
 
 public class ThreadTest {
-    public static void main(String[] args) throws IOException {
-      Thread t =  new Thread(()->System.out.println("run"));
+    public static void main(String[] args) {
 
-      t.setDaemon(true);
-      t.start();
+        Thread t = new Thread(() -> System.out.println("run " + Thread.currentThread().getName()));
 
-      System.in.read();
+        t.setDaemon(true);
+        t.start();
+
+        //System.in.read();
 
     }
 }
