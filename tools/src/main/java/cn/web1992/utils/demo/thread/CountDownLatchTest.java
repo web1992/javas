@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 public class CountDownLatchTest {
     public static void main(String[] args) throws InterruptedException {
 
-        CountDownLatch cdl=new CountDownLatch(2);
+        CountDownLatch cdl = new CountDownLatch(2);
 
-        Runnable r = ()->{
+        Runnable r = () -> {
             cdl.countDown();
             try {
                 TimeUnit.SECONDS.sleep(1);
