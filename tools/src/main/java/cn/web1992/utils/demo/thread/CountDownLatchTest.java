@@ -9,9 +9,10 @@ public class CountDownLatchTest {
         CountDownLatch cdl = new CountDownLatch(2);
 
         Runnable r = () -> {
-            cdl.countDown();
             try {
                 TimeUnit.SECONDS.sleep(1);
+                System.out.println("sleep end");
+                cdl.countDown();
                 cdl.countDown();
             } catch (InterruptedException e) {
                 e.printStackTrace();
