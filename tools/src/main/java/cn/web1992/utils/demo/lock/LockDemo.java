@@ -9,10 +9,10 @@ public class LockDemo {
 
         new Thread(() -> {
             try {
-
+                TimeUnit.SECONDS.sleep(2);
                 reentrantLock.lock();
                 System.out.println(Thread.currentThread().getName() + " get lock ...");
-                TimeUnit.SECONDS.sleep(2);
+
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -25,10 +25,12 @@ public class LockDemo {
         try {
             TimeUnit.SECONDS.sleep(1);
             reentrantLock.lock();
+            reentrantLock.lock();
             System.out.println(Thread.currentThread().getName() + " get lock again ...");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            reentrantLock.unlock();
             reentrantLock.unlock();
             System.out.println(Thread.currentThread().getName() + " unlock again ...");
         }
