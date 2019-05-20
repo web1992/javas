@@ -18,7 +18,7 @@ public class Main {
         });
 
         // 第一个任务如果在 1秒内没有完成
-        // 会等待第二个任务，知道第二个任务完成
+        // 会等待第二个任务，直到第二个任务完成
         // 同时执行的任务只有一个
         // 如果执行的任务时，抛出了异常，该任务会终止
         scheduledThreadPoolExecutor.scheduleWithFixedDelay(() -> {
