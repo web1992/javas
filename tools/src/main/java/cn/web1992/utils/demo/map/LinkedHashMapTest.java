@@ -27,8 +27,12 @@ public class LinkedHashMapTest {
         map.put("b", "b1");
         map.put("c", "c1");
 
-        System.out.println(map);
-        System.out.println(map.get("a"));
-        System.out.println(map);
+//        System.out.println(map);
+//        System.out.println(map.get("a"));
+//        System.out.println(map);
+
+        for (String s : map.keySet()) {
+            System.out.println(s);
+        }
     }
 }

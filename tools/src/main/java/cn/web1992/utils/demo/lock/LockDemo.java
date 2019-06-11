@@ -1,11 +1,16 @@
 package cn.web1992.utils.demo.lock;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class LockDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ReentrantLock reentrantLock = new ReentrantLock();
+
+        Condition condition = reentrantLock.newCondition();
+
+        condition.await();
 
         new Thread(() -> {
             try {
