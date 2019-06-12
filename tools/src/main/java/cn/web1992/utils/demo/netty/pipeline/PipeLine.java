@@ -17,8 +17,8 @@ public class PipeLine {
         tail.prev = head;
     }
 
-    public void fire() {
-        AbstractCtx.invoke(head);
+    public void fire(Object obj) {
+        AbstractCtx.invoke(head,obj);
     }
 
     public void addFirst(ChannelHandler channelHandler) {
@@ -51,9 +51,9 @@ public class PipeLine {
         }
 
         @Override
-        public void write(AbstractCtx ctx) {
+        public void write(AbstractCtx ctx,Object obj) {
             System.out.println(this.getClass().getSimpleName());
-            ctx.invoke();
+            ctx.invoke(obj);
         }
     }
 
@@ -65,9 +65,9 @@ public class PipeLine {
         }
 
         @Override
-        public void write(AbstractCtx ctx) {
+        public void write(AbstractCtx ctx,Object obj) {
             System.out.println(this.getClass().getSimpleName());
-            ctx.invoke();
+            ctx.invoke(obj);
         }
     }
 

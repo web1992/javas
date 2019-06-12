@@ -17,14 +17,14 @@ public abstract class AbstractCtx {
         this.channelHandler = channelHandler;
     }
 
-    public static void invoke(AbstractCtx ctx) {
+    public static void invoke(AbstractCtx ctx,Object obj) {
         if (null != ctx) {
-            ctx.fired(ctx);
+            ctx.fired(ctx,obj);
         }
     }
 
-    public void invoke() {
-        invoke(findNextCtx());
+    public void invoke(Object obj) {
+        invoke(findNextCtx(), obj);
     }
 
     private AbstractCtx findNextCtx() {
@@ -32,8 +32,8 @@ public abstract class AbstractCtx {
         return ctx.next;
     }
 
-    private void fired(AbstractCtx ctx) {
-        ctx.handler().write(this);
+    private void fired(AbstractCtx ctx,Object obj) {
+        ctx.handler().write(this, obj);
     }
 
     public ChannelHandler getChannelHandler() {

@@ -10,7 +10,7 @@ public class PipeLineMain {
         pipeLine.addFirst(new ChannelHandlerBB());
         pipeLine.addFirst(new ChannelHandlerCC());
 
-        pipeLine.fire();
+        pipeLine.fire("pipeline");
 
     }
 }
@@ -18,9 +18,9 @@ public class PipeLineMain {
 class ChannelHandlerAA implements ChannelHandler {
 
     @Override
-    public void write(AbstractCtx ctx) {
+    public void write(AbstractCtx ctx, Object obj) {
         System.out.println(this.getClass().getSimpleName());
-        ctx.invoke();
+        ctx.invoke(obj);
     }
 }
 
@@ -28,18 +28,18 @@ class ChannelHandlerAA implements ChannelHandler {
 class ChannelHandlerBB implements ChannelHandler {
 
     @Override
-    public void write(AbstractCtx ctx) {
+    public void write(AbstractCtx ctx, Object obj) {
         System.out.println(this.getClass().getSimpleName());
-        ctx.invoke();
+        ctx.invoke(obj);
     }
 }
 
 class ChannelHandlerCC implements ChannelHandler {
 
     @Override
-    public void write(AbstractCtx ctx) {
+    public void write(AbstractCtx ctx, Object obj) {
         System.out.println(this.getClass().getSimpleName());
-        ctx.invoke();
+        ctx.invoke(obj);
     }
 }
 
