@@ -22,8 +22,10 @@ public class PipeLine {
     }
 
     public void addFirst(ChannelHandler channelHandler) {
-        AbstractCtx newCtx = createCtx(channelHandler);
-        addFirst0(newCtx);
+        synchronized (this) {
+            AbstractCtx newCtx = createCtx(channelHandler);
+            addFirst0(newCtx);
+        }
     }
 
     private AbstractCtx createCtx(ChannelHandler channelHandler) {
