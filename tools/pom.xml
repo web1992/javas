@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.web1992</groupId>
-    <artifactId>app_tools</artifactId>
+    <artifactId>tools</artifactId>
 
     <properties>
         <junit_jupiter_version>5.4.0</junit_jupiter_version>
