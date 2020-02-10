@@ -12,7 +12,11 @@ public class ThreadPoolExecutorTest {
     public static void main(String[] args) throws InterruptedException {
 
         // ArrayBlockingQueue 满了之后，后续新创建的任务，才会继续创建新的线程，直到 maximumPoolSize
-        ThreadPoolExecutor poll = new ThreadPoolExecutor(1, 9, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10));
+        ThreadPoolExecutor poll = new ThreadPoolExecutor(1,
+                9,
+                0,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(10));
 
 
         for (int i = 0; i < 1000; i++) {
@@ -24,6 +28,7 @@ public class ThreadPoolExecutorTest {
                 }
             });
             System.out.println("getPoolSize " + poll.getPoolSize());
+            System.out.println("getCorePoolSize " + poll.getCorePoolSize());
             System.out.println("getQueue " + poll.getQueue().size());
         }
 
