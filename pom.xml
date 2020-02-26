@@ -194,6 +194,7 @@
         <module>tools</module>
         <module>app</module>
         <module>jetty</module>
+        <module>leetcode</module>
     </modules>
 
 
