@@ -7,9 +7,10 @@ import java.util.stream.IntStream;
  * @date 2020/2/26  15:31
  * @link {https://leetcode-cn.com/explore/featured/card/top-interview-questions-easy/1/array/21/}
  */
-public class Main {
+public class RemoveDuplicates {
     public static void main(String[] args) {
 
+        // 有序的数组
         int[] arr = new int[]{0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 3, 3, 3};
 
         int count = removeDuplicates(arr);
@@ -30,6 +31,7 @@ public class Main {
             if (numbers[i] == numbers[i - 1]) {
                 continue;
             }
+            // 不相等，则移动
             numbers[count++] = numbers[i];
         }
 
