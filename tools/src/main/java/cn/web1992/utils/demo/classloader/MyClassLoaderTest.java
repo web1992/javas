@@ -18,7 +18,7 @@ public class MyClassLoaderTest {
 
         MyClassLoader myClassLoader = new MyClassLoader(null, dir);
 
-        Class<?> mainTest = myClassLoader.findClass("MainTest");
+        Class<?> mainTest = myClassLoader.loadClass("MainTest");
 
         Object o = mainTest.newInstance();
         Method main = mainTest.getMethod("main");
