@@ -16,10 +16,17 @@ public class MyClassLoaderTest {
 
         String dir = "/Users/zl/Documents/dev/github/javas/tools/src/main/java/cn/web1992/utils/demo/classloader/class";
 
-        MyClassLoader myClassLoader = new MyClassLoader(null, dir);
+        ClassLoader cl = Thread.currentThread().getContextClassLoader();
+        // ClassLoader cl = null;
+        MyClassLoader myClassLoader = new MyClassLoader(cl, dir);
+        MyClassLoader myClassLoader2 = new MyClassLoader(cl, dir);
 
         Class<?> mainTest = myClassLoader.loadClass("MainTest");
+        Class<?> mainTest2 = myClassLoader2.loadClass("MainTest");
 
+        System.out.println("mainTest == mainTest2 is " + (mainTest == mainTest2));
+        // Expect:
+        // mainTest == mainTest2 is false
         Object o = mainTest.newInstance();
         Method main = mainTest.getMethod("main");
         main.invoke(o, null);
