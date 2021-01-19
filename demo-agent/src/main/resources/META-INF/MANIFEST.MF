@@ -1,0 +1,2 @@
+Class-Path: javassist-3.12.1.GA.jar
+Premain-Class: cn.web1992.Premain

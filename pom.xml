@@ -59,6 +59,13 @@
     <dependencyManagement>
 
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/javassist/javassist -->
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.12.1.GA</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -201,6 +208,7 @@
         <module>app</module>
         <module>jetty</module>
         <module>leetcode</module>
+        <module>demo-agent</module>
     </modules>
 
 
