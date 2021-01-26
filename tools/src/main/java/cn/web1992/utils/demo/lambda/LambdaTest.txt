@@ -1,0 +1,201 @@
+/usr/bin/javap -v -p cn.web1992.utils.demo.lambda.LambdaTest
+Classfile /Users/zl/Documents/DEV/github/javas/tools/target/classes/cn/web1992/utils/demo/lambda/LambdaTest.class
+  Last modified 2021-1-26; size 1738 bytes
+  MD5 checksum a42809ee1c490183ae2b7860466c2e24
+  Compiled from "LambdaTest.java"
+public class cn.web1992.utils.demo.lambda.LambdaTest
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #18.#38        // java/lang/Object."<init>":()V
+   #2 = Class              #39            // cn/web1992/utils/demo/lambda/LambdaTest
+   #3 = Methodref          #2.#38         // cn/web1992/utils/demo/lambda/LambdaTest."<init>":()V
+   #4 = InvokeDynamic      #0:#44         // #0:run:(Lcn/web1992/utils/demo/lambda/LambdaTest;)Ljava/lang/Runnable;
+   #5 = Fieldref           #45.#46        // java/lang/System.out:Ljava/io/PrintStream;
+   #6 = Class              #47            // java/lang/StringBuilder
+   #7 = Methodref          #6.#38         // java/lang/StringBuilder."<init>":()V
+   #8 = String             #48            // r class
+   #9 = Methodref          #6.#49         // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #10 = Methodref          #18.#50        // java/lang/Object.getClass:()Ljava/lang/Class;
+  #11 = Methodref          #51.#52        // java/lang/Class.getName:()Ljava/lang/String;
+  #12 = Methodref          #6.#53         // java/lang/StringBuilder.toString:()Ljava/lang/String;
+  #13 = Methodref          #54.#55        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #14 = InterfaceMethodref #56.#57        // java/lang/Runnable.run:()V
+  #15 = String             #58            // Hi
+  #16 = Methodref          #2.#59         // cn/web1992/utils/demo/lambda/LambdaTest.say:()V
+  #17 = String             #60            // run
+  #18 = Class              #61            // java/lang/Object
+  #19 = Utf8               <init>
+  #20 = Utf8               ()V
+  #21 = Utf8               Code
+  #22 = Utf8               LineNumberTable
+  #23 = Utf8               LocalVariableTable
+  #24 = Utf8               this
+  #25 = Utf8               Lcn/web1992/utils/demo/lambda/LambdaTest;
+  #26 = Utf8               main
+  #27 = Utf8               ([Ljava/lang/String;)V
+  #28 = Utf8               args
+  #29 = Utf8               [Ljava/lang/String;
+  #30 = Utf8               lambdaTest
+  #31 = Utf8               r
+  #32 = Utf8               Ljava/lang/Runnable;
+  #33 = Utf8               say
+  #34 = Utf8               lambda$main$0
+  #35 = Utf8               (Lcn/web1992/utils/demo/lambda/LambdaTest;)V
+  #36 = Utf8               SourceFile
+  #37 = Utf8               LambdaTest.java
+  #38 = NameAndType        #19:#20        // "<init>":()V
+  #39 = Utf8               cn/web1992/utils/demo/lambda/LambdaTest
+  #40 = Utf8               BootstrapMethods
+  #41 = MethodHandle       #6:#62         // invokestatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #42 = MethodType         #20            //  ()V
+  #43 = MethodHandle       #6:#63         // invokestatic cn/web1992/utils/demo/lambda/LambdaTest.lambda$main$0:(Lcn/web1992/utils/demo/lambda/LambdaTest;)V
+  #44 = NameAndType        #60:#64        // run:(Lcn/web1992/utils/demo/lambda/LambdaTest;)Ljava/lang/Runnable;
+  #45 = Class              #65            // java/lang/System
+  #46 = NameAndType        #66:#67        // out:Ljava/io/PrintStream;
+  #47 = Utf8               java/lang/StringBuilder
+  #48 = Utf8               r class
+  #49 = NameAndType        #68:#69        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #50 = NameAndType        #70:#71        // getClass:()Ljava/lang/Class;
+  #51 = Class              #72            // java/lang/Class
+  #52 = NameAndType        #73:#74        // getName:()Ljava/lang/String;
+  #53 = NameAndType        #75:#74        // toString:()Ljava/lang/String;
+  #54 = Class              #76            // java/io/PrintStream
+  #55 = NameAndType        #77:#78        // println:(Ljava/lang/String;)V
+  #56 = Class              #79            // java/lang/Runnable
+  #57 = NameAndType        #60:#20        // run:()V
+  #58 = Utf8               Hi
+  #59 = NameAndType        #33:#20        // say:()V
+  #60 = Utf8               run
+  #61 = Utf8               java/lang/Object
+  #62 = Methodref          #80.#81        // java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #63 = Methodref          #2.#82         // cn/web1992/utils/demo/lambda/LambdaTest.lambda$main$0:(Lcn/web1992/utils/demo/lambda/LambdaTest;)V
+  #64 = Utf8               (Lcn/web1992/utils/demo/lambda/LambdaTest;)Ljava/lang/Runnable;
+  #65 = Utf8               java/lang/System
+  #66 = Utf8               out
+  #67 = Utf8               Ljava/io/PrintStream;
+  #68 = Utf8               append
+  #69 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #70 = Utf8               getClass
+  #71 = Utf8               ()Ljava/lang/Class;
+  #72 = Utf8               java/lang/Class
+  #73 = Utf8               getName
+  #74 = Utf8               ()Ljava/lang/String;
+  #75 = Utf8               toString
+  #76 = Utf8               java/io/PrintStream
+  #77 = Utf8               println
+  #78 = Utf8               (Ljava/lang/String;)V
+  #79 = Utf8               java/lang/Runnable
+  #80 = Class              #83            // java/lang/invoke/LambdaMetafactory
+  #81 = NameAndType        #84:#88        // metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #82 = NameAndType        #34:#35        // lambda$main$0:(Lcn/web1992/utils/demo/lambda/LambdaTest;)V
+  #83 = Utf8               java/lang/invoke/LambdaMetafactory
+  #84 = Utf8               metafactory
+  #85 = Class              #90            // java/lang/invoke/MethodHandles$Lookup
+  #86 = Utf8               Lookup
+  #87 = Utf8               InnerClasses
+  #88 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #89 = Class              #91            // java/lang/invoke/MethodHandles
+  #90 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #91 = Utf8               java/lang/invoke/MethodHandles
+{
+  public cn.web1992.utils.demo.lambda.LambdaTest();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 7: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcn/web1992/utils/demo/lambda/LambdaTest;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=3, args_size=1
+         0: new           #2                  // class cn/web1992/utils/demo/lambda/LambdaTest
+         3: dup
+         4: invokespecial #3                  // Method "<init>":()V
+         7: astore_1
+         8: aload_1
+         9: invokedynamic #4,  0              // InvokeDynamic #0:run:(Lcn/web1992/utils/demo/lambda/LambdaTest;)Ljava/lang/Runnable;
+        14: astore_2
+        15: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        18: new           #6                  // class java/lang/StringBuilder
+        21: dup
+        22: invokespecial #7                  // Method java/lang/StringBuilder."<init>":()V
+        25: ldc           #8                  // String r class
+        27: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        30: aload_2
+        31: invokevirtual #10                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+        34: invokevirtual #11                 // Method java/lang/Class.getName:()Ljava/lang/String;
+        37: invokevirtual #9                  // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        40: invokevirtual #12                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        43: invokevirtual #13                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        46: aload_2
+        47: invokeinterface #14,  1           // InterfaceMethod java/lang/Runnable.run:()V
+        52: return
+      LineNumberTable:
+        line 11: 0
+        line 13: 8
+        line 17: 15
+        line 18: 46
+        line 20: 52
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      53     0  args   [Ljava/lang/String;
+            8      45     1 lambdaTest   Lcn/web1992/utils/demo/lambda/LambdaTest;
+           15      38     2     r   Ljava/lang/Runnable;
+
+  private void say();
+    descriptor: ()V
+    flags: ACC_PRIVATE
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #15                 // String Hi
+         5: invokevirtual #13                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 24: 0
+        line 26: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       9     0  this   Lcn/web1992/utils/demo/lambda/LambdaTest;
+
+  private static void lambda$main$0(cn.web1992.utils.demo.lambda.LambdaTest);
+    descriptor: (Lcn/web1992/utils/demo/lambda/LambdaTest;)V
+    flags: ACC_PRIVATE, ACC_STATIC, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #16                 // Method say:()V
+         4: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         7: ldc           #17                 // String run
+         9: invokevirtual #13                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        12: return
+      LineNumberTable:
+        line 14: 0
+        line 15: 4
+        line 16: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      13     0 lambdaTest   Lcn/web1992/utils/demo/lambda/LambdaTest;
+}
+SourceFile: "LambdaTest.java"
+InnerClasses:
+     public static final #86= #85 of #89; //Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles
+BootstrapMethods:
+  0: #41 invokestatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #42 ()V
+      #43 invokestatic cn/web1992/utils/demo/lambda/LambdaTest.lambda$main$0:(Lcn/web1992/utils/demo/lambda/LambdaTest;)V
+      #42 ()V
+
+Process finished with exit code 0

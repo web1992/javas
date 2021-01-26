@@ -1,0 +1,32 @@
+/usr/bin/javap -c -p cn.web1992.utils.demo.lambda.LambdaTest2
+Compiled from "LambdaTest2.java"
+public class cn.web1992.utils.demo.lambda.LambdaTest2 {
+  public cn.web1992.utils.demo.lambda.LambdaTest2();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: invokedynamic #2,  0              // InvokeDynamic #0:get:()Ljava/util/function/Supplier;
+       5: invokestatic  #3                  // Method say:(Ljava/util/function/Supplier;)V
+       8: return
+
+  private static void say(java.util.function.Supplier<cn.web1992.utils.demo.lambda.LambdaTest2>);
+    Code:
+       0: aload_0
+       1: invokeinterface #4,  1            // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       6: checkcast     #5                  // class cn/web1992/utils/demo/lambda/LambdaTest2
+       9: astore_1
+      10: aload_1
+      11: invokespecial #6                  // Method hello:()V
+      14: return
+
+  private void hello();
+    Code:
+       0: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #8                  // String Hello
+       5: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
