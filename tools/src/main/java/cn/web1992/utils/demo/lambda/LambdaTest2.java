@@ -5,6 +5,10 @@ import java.util.function.Supplier;
 /**
  * @author web1992
  * @date 2021/1/26  10:11 上午
+ * 输出动态生成的类
+ * <pre>
+ *     -Djdk.internal.lambda.dumpProxyClasses=.
+ * </pre>
  */
 public class LambdaTest2 {
     public static void main(String[] args) {
