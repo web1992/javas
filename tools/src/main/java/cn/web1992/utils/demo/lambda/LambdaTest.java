@@ -1,5 +1,7 @@
 package cn.web1992.utils.demo.lambda;
 
+import java.util.StringTokenizer;
+
 /**
  * @author web1992
  * @date 2021/1/26  9:55 上午
@@ -33,14 +35,11 @@ public class LambdaTest {
 
     public static void main(String[] args) {
 
-        LambdaTest lambdaTest = new LambdaTest();
-
-        Runnable r = () -> {
-            lambdaTest.say();
-            System.out.println("run");
-        };
-        System.out.println("r class " + r.getClass().getName());
-        r.run();
+        String property = System.getProperty("java.library.path");
+        StringTokenizer parser = new StringTokenizer(property, ";");
+        while (parser.hasMoreTokens()) {
+            System.err.println(parser.nextToken());
+        }
 
     }
 
