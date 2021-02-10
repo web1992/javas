@@ -24,53 +24,53 @@ public class JarFileMain {
     public static void main(String[] args) throws IOException {
         JarFile jarFile = new JarFile(file);
 
-        File file = new File(path + "/" + "aa.jar");
-        OutputStream outStream = new FileOutputStream(file);
-        JarOutputStream jarOutputStream = new JarOutputStream(outStream);
-        jarFile.stream().forEach(jar -> process(path, jarFile, jar, jarOutputStream));
+//        File file = new File(path + "/" + "aa.jar");
+//        OutputStream outStream = new FileOutputStream(file);
+//        JarOutputStream jarOutputStream = new JarOutputStream(outStream);
+        jarFile.stream().forEach(jar -> process(path, jarFile, jar /*,jarOutputStream*/));
 
-        outStream.close();
+//        outStream.close();
 
     }
 
-    public static void process(String path, JarFile jarFile, JarEntry jarEntry, JarOutputStream jarOutputStream)  {
+    public static void process(String path, JarFile jarFile, JarEntry jarEntry/*, JarOutputStream jarOutputStream*/)  {
         String name = jarEntry.getName();
 
         System.out.println("name=" + name);
-        try {
-            jarOutputStream.putNextEntry(jarEntry);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
 //        try {
-//            File fileTemp = new File(path);
-//            if (fileTemp.exists()) {
-//                fileTemp.deleteOnExit();
-//            }
-//
-//            byte[] bs = new byte[1024];
-//            InputStream inputStream = jarFile.getInputStream(jarEntry);
-//            //String n = getName(name);
-//            if (name.endsWith("/")) {
-//                ensureDirOK(path + "/" + name);
-//            } else {
-//                String n = getPathName(path, name);
-//                File file = new File(n);
-//                OutputStream outStream = new FileOutputStream(file);
-//                int len = 0;
-//                while (-1 != (len = inputStream.read(bs))) {
-//                    outStream.write(bs, 0, len);
-//                }
-//
-//                inputStream.close();
-//                outStream.close();
-//            }
-//
+//            jarOutputStream.putNextEntry(jarEntry);
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+
+
+        try {
+            File fileTemp = new File(path);
+            if (fileTemp.exists()) {
+                fileTemp.deleteOnExit();
+            }
+
+            byte[] bs = new byte[1024];
+            InputStream inputStream = jarFile.getInputStream(jarEntry);
+            //String n = getName(name);
+            if (name.endsWith("/")) {
+                ensureDirOK(path + "/" + name);
+            } else {
+                String n = getPathName(path, name);
+                File file = new File(n);
+                OutputStream outStream = new FileOutputStream(file);
+                int len = 0;
+                while (-1 != (len = inputStream.read(bs))) {
+                    outStream.write(bs, 0, len);
+                }
+
+                inputStream.close();
+                outStream.close();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
