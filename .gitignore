@@ -32,3 +32,4 @@ target
 bin/
 .DS_Store
 .vscode
+jars/
