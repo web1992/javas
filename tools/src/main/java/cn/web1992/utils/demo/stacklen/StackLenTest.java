@@ -4,6 +4,9 @@ package cn.web1992.utils.demo.stacklen;
  * @author erbao.wang
  * @date 2021/8/12  下午8:36
  * -Xss256k
+ * <pre>
+ *     -Xmx10m -XX:+UseSerialGC -XX:-UseCompressedOops
+ * </pre>
  */
 public class StackLenTest {
 
