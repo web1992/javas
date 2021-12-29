@@ -2,8 +2,6 @@ package cn.web1992.sort.select.sort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * SelectSort 选择排序
@@ -13,14 +11,13 @@ import java.util.List;
 public class SelectSort {
     public static void main(String[] args) {
 
-        int[] ints = selectSort(new int[]{11, 34, 5, 6, 32, 123, 98});
+        int[] arr = new int[]{11, 34, 5, 6, 32, 123, 98};
+        selectSort(arr);
+        System.out.println(Arrays.toString(arr));
 
-        for (int i = 0; i < ints.length; i++) {
-            System.out.print(ints[i] + ",");
-        }
     }
 
-    private static int[] selectSort(int[] ints) {
+    private static void selectSort(int[] ints) {
 
         ArrayList<Integer> list = arrToList(ints);
 
@@ -29,8 +26,6 @@ public class SelectSort {
             int si = findSmallestInt(list);
             ints[i++] = list.remove(si);
         }
-
-        return ints;
 
     }
 
