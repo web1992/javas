@@ -15,7 +15,7 @@ public class BubbleSort2 {
         System.out.println(Arrays.toString(arr));
     }
 
-    // 每次比较+交换相邻位置的值
+    // 思路： 每次比较+交换相邻位置的值
     private static void sort(int[] arr) {
 
         int len = arr.length;

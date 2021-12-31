@@ -16,7 +16,7 @@ public class SelectSort3 {
 
     }
 
-    // 找到最小的 index,交换
+    // 思路： 找到最小的 index,交换
     private static void selectSort(int[] arr) {
 
         int len = arr.length;

@@ -17,7 +17,7 @@ public class InsertSort2 {
     }
 
 
-    // 在已经有序的部分，找到位置，插入
+    // 核心思路：在已经有序的部分，找到位置，插入
     public static void sort(int[] arr) {
 
         int len = arr.length;
@@ -28,12 +28,14 @@ public class InsertSort2 {
             int val = arr[i];
             for (; j >= 0; j--) {
                 if (arr[j] > val) {
+                    // 后移
                     arr[j + 1] = arr[j];
                 } else {
                     break;
                 }
             }
 
+            // 插在j后面
             arr[j + 1] = val;
 
         }
