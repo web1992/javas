@@ -49,7 +49,6 @@ public class MergeSort {
         int l1 = left;
         int r1 = mid + 1;
         int ki = left;
-        int cIndex = left;
         while (l1 <= mid && r1 <= right) {
             if (arr[l1] < arr[r1]) {
                 temp[ki++] = arr[l1++];
@@ -66,9 +65,9 @@ public class MergeSort {
             temp[ki++] = arr[r1++];
         }
         // copy
-        while (cIndex <= right) {
-            arr[cIndex] = temp[cIndex];
-            cIndex++;
+        while (left <= right) {
+            arr[left] = temp[left];
+            left++;
         }
     }
 
