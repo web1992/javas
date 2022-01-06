@@ -3,51 +3,57 @@ package cn.web1992.sort.quick.sort;
 import java.util.Arrays;
 
 /**
- * @author web1992
- * @date 2020/3/5  22:20
- * 快速排序
+ * <pre>
+ * partition(A, p, r) {
+ *  pivot := A[r]
+ *      i := p
+ *      for j := p to r-1 do {
+ *      if A[j] < pivot {
+ *          swap A[i] with A[j]
+ *          i := i+1
+ *          }
+ *  }
+ *  swap A[i] with A[r]
+ *  return i
+ * }
+ * </pre>
  */
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] sort = sort(new int[]{1, 5, 6, 72, 432, 234, 2, 9, -2, 0, -1});
-        System.out.println(Arrays.toString(sort));
+        int array[] = {32, 12, 7, 78, 23, 45};
+        quickSort(array, 0, array.length - 1);
+        System.out.println(Arrays.toString(array));
     }
 
-    private static int[] sort(int[] sourceArray) {
-        quickSort(sourceArray, 0, sourceArray.length - 1);
-        return sourceArray;
-    }
-
-    private static void quickSort(int[] arr, int start, int end) {
-
-        if (start < end) {
-            int p = part(arr, start, end);
-            quickSort(arr, start, p - 1);
-            quickSort(arr, p + 1, end);
+    // 1. 找到 p 点
+    // 2. 小于p点的，放在右边，大于p点的，放到左边
+    //  p........ r
+    // [5,4,3,2,1,0]
+    public static void quickSort(int array[], int left, int right) {
+        if (left >= right) {
+            return;
         }
-    }
-
-
-    private static int part(int[] arr, int start, int end) {
-
-        int p = start;
-        int index = p + 1;
-
-        for (int i = index; i <= end; i++) {
-            if (arr[i] < arr[p]) {
-                swap(arr, i, index);
-                index++;
+        int li = left;
+        int ri = right;
+        int key = array[left];
+        while (li < ri) {
+            while (li < ri && array[ri] > key) {
+                ri--;
             }
+            array[li] = array[ri];
+            //从后往前找到第一个比key小的数与array[li]交换；
+            while (li < ri && array[li] < key) {
+                li++;
+            }
+            array[ri] = array[li];
+            //从前往后找到第一个比key大的数与array[ri]交换；
         }
-        swap(arr, p, index - 1);
-        return index - 1;
-    }
-
-
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        array[li] = key;
+        //一趟快排之后已经将key的位置找到。
+        quickSort(array, left, li - 1);
+        //对key左边的进行排序
+        quickSort(array, li + 1, right);
+        //对key右边的进行排序
     }
 }

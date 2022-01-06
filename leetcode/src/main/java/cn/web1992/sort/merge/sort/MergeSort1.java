@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author web1992
  * @date 2021/12/31  9:15 上午
  */
-public class MergeSort {
+public class MergeSort1 {
 
     public static void main(String[] args) {
 
@@ -43,34 +43,33 @@ public class MergeSort {
     // [5,4,3,2,1]
     //
     private static void merge(int[] arr, int left, int mid, int right) {
-        //System.out.println("left=" + left + " mid=" + mid + " right=" + right);
 
         int[] temp = new int[arr.length];
-        //
-        int l1 = left;
-        int r1 = mid + 1;
-        int ki = left;
-        while (l1 <= mid && r1 <= right) {
-            if (arr[l1] < arr[r1]) {
-                temp[ki++] = arr[l1++];
+
+        int li = left, ri = mid + 1, ki = left;
+
+        while (li <= mid && ri <= right) {
+            if (arr[li] < arr[ri]) {
+                temp[ki++] = arr[li++];
             } else {
-                temp[ki++] = arr[r1++];
+                temp[ki++] = arr[ri++];
             }
         }
 
-        while (l1 <= mid) {
-            temp[ki++] = arr[l1++];
+
+        while (li <= mid) {
+            temp[ki++] = arr[li++];
         }
 
-        while (r1 <= right) {
-            temp[ki++] = arr[r1++];
+        while (ri <= right) {
+            temp[ki++] = arr[ri++];
         }
-        System.out.println(Arrays.toString(temp));
-        // copy
+
         while (left <= right) {
             arr[left] = temp[left];
             left++;
         }
+
     }
 
 }
