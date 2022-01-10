@@ -7,7 +7,7 @@ import java.util.Arrays;
  *
  * @author web1992
  */
-public class SelectSort4 {
+public class SelectSort6 {
     public static void main(String[] args) {
 
         int[] arr = new int[]{1, 1, 11, 34, 5, 6, 32, 123, 98};
@@ -20,10 +20,11 @@ public class SelectSort4 {
     private static void selectSort(int[] arr) {
 
         int len = arr.length;
+
         for (int i = 0; i < len - 1; i++) {
             int si = i;
             for (int j = i + 1; j < len; j++) {
-                if (arr[j] < arr[si]) {
+                if (arr[j] > arr[si]) {
                     si = j;
                 }
             }
@@ -34,6 +35,7 @@ public class SelectSort4 {
                 arr[si] = t;
             }
         }
+
 
     }
 

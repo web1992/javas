@@ -20,7 +20,7 @@ public class SelectSort3 {
     private static void selectSort(int[] arr) {
 
         int len = arr.length;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len - 1; i++) {
             int sIndex = i;
             for (int j = i + 1; j < len; j++) {
                 if (arr[j] < arr[sIndex]) {

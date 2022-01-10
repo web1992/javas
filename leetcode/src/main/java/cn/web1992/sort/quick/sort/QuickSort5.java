@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @date 2021/1/4
  * 快速排序
  */
-public class QuickSort3 {
+public class QuickSort5 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 5, 6, 72, 432, 234, 2, 9, -2, 0, -1};
@@ -16,7 +16,7 @@ public class QuickSort3 {
     }
 
     private static void sort(int[] arr) {
-        sort0(arr, 0, arr.length);
+        sort0(arr, 0, arr.length - 1);
     }
 
     // 找到p点，小于p点的放在左边，大于p点的放在右边
@@ -24,10 +24,7 @@ public class QuickSort3 {
 
 
     }
-    // s p,i
-    // . .  . . . . . . . . . . . . .
-    // ↑                            ↑
-    // left                         right
+
     private static int part(int[] arr, int left, int right) {
 
         return 0;

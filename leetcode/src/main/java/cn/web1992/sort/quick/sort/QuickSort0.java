@@ -43,9 +43,6 @@ public class QuickSort0 {
             }
         }
         swap(arr, start, p - 1);
-//        System.out.println("p=" + (p - 1) + " start=" + start + " end=" + end);
-//        System.out.println(Arrays.toString(arr));
-//        System.out.println();
         return p - 1;
     }
 

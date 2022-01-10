@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @date 2021/1/4
  * 快速排序
  */
-public class QuickSort2 {
+public class QuickSortTest {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 5, 6, 72, 432, 234, 2, 9, -2, 0, -1};
@@ -21,9 +21,11 @@ public class QuickSort2 {
 
     // 找到p点，小于p点的放在左边，大于p点的放在右边
     private static void sort0(int[] arr, int left, int right) {
+
         if (left >= right) {
             return;
         }
+
         int p = part(arr, left, right);
         sort0(arr, left, p - 1);
         sort0(arr, p + 1, right);
@@ -32,15 +34,27 @@ public class QuickSort2 {
 
     private static int part(int[] arr, int left, int right) {
 
-        int p = left + 1;
-        for (int i = p; i <= right; i++) {
-            if (arr[i] < arr[left]) {
-                swap(arr, i, p);
-                p++;
+        int[] lArr = new int[arr.length];
+        int[] rArr = new int[arr.length];
+        int p = left;
+        int li = 0;
+        int ri = 0;
+        for (int i = p + 1; i <= right; i++) {
+            if (arr[i] > arr[p]) {
+                rArr[ri++] = arr[i];
+            } else {
+                lArr[li++] = arr[i];
             }
         }
-        swap(arr, left, p - 1);
-        return p - 1;
+        int[] tt = new int[arr.length];
+        int tti = 0;
+        while (li >= 0) {
+            tt[tti++] = lArr[li++];
+        }
+        while (ri >= 0) {
+            tt[tti++] = lArr[ri++];
+        }
+        return p;
     }
 
 
