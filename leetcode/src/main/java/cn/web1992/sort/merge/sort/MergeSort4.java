@@ -21,11 +21,43 @@ public class MergeSort4 {
 
     public static void sort0(int[] arr, int left, int right) {
 
+        if (left >= right) {
+            return;
+        }
+
+        int mid = (right + left) / 2;
+        sort0(arr, left, mid);
+        sort0(arr, mid + 1, right);
+        merge(arr, left, mid, right);
 
     }
 
     private static void merge(int[] arr, int left, int mid, int right) {
 
+        int tmp[] = new int[arr.length];
+        int li = left;
+        int ri = mid + 1;
+        int ki = left;
+        while (li <= mid && ri <= right) {
+            if (arr[li] > arr[ri]) {
+                tmp[ki++] = arr[ri++];
+            } else {
+                tmp[ki++] = arr[li++];
+            }
+        }
+
+        while (li <= mid) {
+            tmp[ki++] = arr[li++];
+        }
+
+        while (ri <= right) {
+            tmp[ki++] = arr[ri++];
+        }
+
+        while (left <= right) {
+            arr[left] = tmp[left];
+            left++;
+        }
 
 
     }
