@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class QuickSort4 {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 5, 6, 72, 432, 234, 2, 9, -2, 0, -1};
+        int[] arr = new int[]{1, 5, 6, 72, 432, 234, 2, 9, -2, 0, -1, -2};
         sort(arr);
         System.out.println(Arrays.toString(arr));
     }
@@ -31,16 +31,16 @@ public class QuickSort4 {
         sort0(arr, p + 1, right);
     }
 
-    // s p,i
-    // . .  . . . . . . . . . . . . .
-    // ↑                            ↑
-    // left                         right
+    // 已处理区间.....p........未处理区间
+    // p,i
+    // .   . . . . . . . . . . . . . .
+    // ↑                             ↑
+    // left                          right
     private static int part(int[] arr, int left, int right) {
-
         int p = left + 1;
         for (int i = p; i <= right; i++) {
-            if (arr[i] < arr[left]) {
-                swap(arr, i, p);
+            if (arr[i] < arr[left]) {// i>=left
+                swap(arr, i, p);// i>=p
                 p++;
             }
         }
