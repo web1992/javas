@@ -1,10 +1,10 @@
-package cn.web1992.data.struct;
+package cn.web1992.data.struct.linked;
 
 /**
  * @author web1992
  * @date 2022/1/24  11:57 上午
  */
-public class Linked {
+public class LinkedTest {
 
     public static void main(String[] args) {
 
