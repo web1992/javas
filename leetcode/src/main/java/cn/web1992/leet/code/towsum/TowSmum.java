@@ -38,6 +38,12 @@ public class TowSmum {
     }
 
 
+    /**
+     * 使用map记录，避免多余的计算
+     * @param nums
+     * @param target
+     * @return
+     */
     public static int[] towSum2(int[] nums, int target) {
 
         Map<Integer, Integer> map = new HashMap<>();
