@@ -39,7 +39,7 @@ public class TowSmum {
 
 
     /**
-     * 使用map记录，避免多余的计算
+     * 使用map记录关系，避免多余的计算
      * @param nums
      * @param target
      * @return
