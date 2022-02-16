@@ -23,6 +23,12 @@ public class JDBC2Test {
     static DataSource ds = null;
 
     static {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         //加载配置文件
         Properties pro = new Properties();
         try {
@@ -45,10 +51,12 @@ public class JDBC2Test {
     public static void main(String[] args) throws Exception {
 
 
-        ExecutorService executorService = Executors.newFixedThreadPool(2000);
+        int threads = 100;
+        int runs = 100;
+        ExecutorService executorService = Executors.newFixedThreadPool(threads);
 
-        CountDownLatch cdl = new CountDownLatch(2000);
-        for (int i = 0; i < 2000; i++) {
+        CountDownLatch cdl = new CountDownLatch(runs);
+        for (int i = 0; i < runs; i++) {
             int a = i;
             executorService.submit(() -> {
                 try {
@@ -66,19 +74,30 @@ public class JDBC2Test {
     }
 
 
+    public static void selectNums(Connection con) throws Exception {
+        //4、定义sql语句
+//        String sql = "SELECT nums into @nums FROM yianhealth.t_tmp where id =3;";
+        // 使用  for update 加锁
+        String sql = "SELECT nums into @nums FROM yianhealth.t_tmp where id =3  for update;";
+        //5、获取执行sql语句的对象
+        Statement stat = con.createStatement();
+        //6、执行sql并接收返回结果
+        stat.executeQuery(sql);
+    }
+
     public static void updateTest() throws Exception {
         //System.out.println("Connecting to database...");
         //Connection con = DriverManager.getConnection(DB_URL, USER, PASS);
         Connection con = ds.getConnection();
-//        con.setAutoCommit(false);
+        con.setAutoCommit(false);
         //1、导入驱动jar包
         //2、注册驱动
-        Class.forName("com.mysql.jdbc.Driver");
 
         boolean autoCommit = con.getAutoCommit();
+        selectNums(con);
         //System.out.println("autoCommit is: " + autoCommit);
         //4、定义sql语句
-        String sql = "update t_tmp set nums= nums+1 where id =3";
+        String sql = "update t_tmp set nums= @nums+1 where id =3";
 
         //5、获取执行sql语句的对象
         Statement stat = con.createStatement();
@@ -89,7 +108,7 @@ public class JDBC2Test {
 //        System.out.println(count);
 
         // con.rollback();
-//        con.commit();
+        con.commit();
         //8、释放资源
         stat.close();
         con.close();
