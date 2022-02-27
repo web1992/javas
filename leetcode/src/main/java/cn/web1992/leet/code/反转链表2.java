@@ -6,7 +6,7 @@ package cn.web1992.leet.code;
  * @implNote 反转链表
  * @link {https://www.bilibili.com/video/BV1JS4y1Z7Lu}
  */
-public class 反转链表 {
+public class 反转链表2 {
 
     public static void main(String[] args) {
 
@@ -22,21 +22,13 @@ public class 反转链表 {
     private static Node reverse(Node node) {
 
         if (node == null || node.next == null) {
-            return null;
+            return node;
         }
+        Node res = reverse(node.next);
+        node.next.next = node;
+        node.next = null;
 
-        Node temp = null;
-        Node cur = node;
-        Node next = node;
-
-        while (cur != null) {
-            next = cur.next;
-            cur.next = temp;// 反转链表的时候需要，修改Next,因此上面先把Next存储在next变量中，temp 是要被Next指向的值
-            temp = cur;
-            cur = next;
-        }
-
-        return temp;
+        return res;
     }
 
     private static Node init() {
