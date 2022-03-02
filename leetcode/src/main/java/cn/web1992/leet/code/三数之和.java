@@ -32,13 +32,15 @@ public class 三数之和 {
                 int sum = arrSorted[left] + m + arrSorted[right];
                 if (sum == 0) {
                     list.add(new int[]{arrSorted[left], arrSorted[right], m});
+                    // 去重
                     while (left < right && arrSorted[left] == arrSorted[left + 1]) {
                         left++;
                     }
-
+                    // 去重
                     while (left < right && arrSorted[right] == arrSorted[right - 1]) {
                         right--;
                     }
+                    // 指针移动
                     left++;
                     right--;
                 } else if (sum < 0) {
