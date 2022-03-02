@@ -7,6 +7,7 @@ import java.util.Stack;
 /**
  * @author web1992
  * @date 2022/3/2  10:02 下午
+ * @link {https://www.bilibili.com/video/BV13F411b7hs}
  */
 public class 有效的括号 {
 
@@ -46,7 +47,7 @@ public class 有效的括号 {
 
         }
 
-        System.out.println("is empty " + stack.empty() + " =" + stack.toString());
+        //System.out.println("is empty " + stack.empty() + " =" + stack.toString());
         return stack.empty();
     }
 }
