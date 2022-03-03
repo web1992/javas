@@ -21,11 +21,17 @@ public class 最小覆盖子串 {
     }
 
 
-    private static String search(String searchTxt, String target) {
+    private static String search(String maxStr, String minStr) {
 
-        // tMap = {A=1, B=1, C=1}
-        Map<Character, Integer> tMap = new HashMap<>();
-        Map<Character, Integer> sMap = new HashMap<>();
+        // 使用Map存储，字符对应的个数
+        // key=字符，value=字符的个数
+        Map<Character, Integer> minMap = new HashMap<>();
+        Map<Character, Integer> maxMap = new HashMap<>();
+
+        // ABC => minMap = {A=1, B=1, C=1}
+        for (int i = 0; i < minStr.length(); i++) {
+            minMap.merge(minStr.charAt(i), 1, Integer::sum);
+        }
 
         int left = 0;
         int right = -1;
@@ -33,18 +39,16 @@ public class 最小覆盖子串 {
         int mRight = right;
         int mLeft = left;
 
-        for (int i = 0; i < target.length(); i++) {
-            tMap.merge(target.charAt(i), 1, Integer::sum);
-        }
-
-        while (right < searchTxt.length() - 1) {
+        while (right < maxStr.length() - 1) {
             right++;
-            char ch = searchTxt.charAt(right);
-            if (tMap.containsKey(ch)) {
-                sMap.merge(ch, 1, Integer::sum);
+            char ch = maxStr.charAt(right);
+            if (minMap.containsKey(ch)) {
+                maxMap.merge(ch, 1, Integer::sum);
             }
 
-            while (check(tMap, sMap)) {
+            // 检查是否匹配，如果匹配，更新mLeft和mRight
+            // 然后再修改left指针，尝试匹配最小的子串
+            while (check(minMap, maxMap)) {
                 int m = right - left;
                 if (m < min) {
                     min = m;
@@ -52,31 +56,27 @@ public class 最小覆盖子串 {
                     mRight = right;
                 }
 
-                if (tMap.get(searchTxt.charAt(left)) != null) {
-                    sMap.merge(searchTxt.charAt(left), -1, Integer::sum);
+                // 后面需要修改left,那么就需要更新maxMap里面的数值
+                if (minMap.get(maxStr.charAt(left)) != null) {
+                    maxMap.merge(maxStr.charAt(left), -1, Integer::sum);
                 }
                 left++;
             }
 
         }
 
-        //System.out.println(mLeft);
-        //System.out.println(mRight);
-        return searchTxt.substring(mLeft, mRight + 1);
+        return maxStr.substring(mLeft, mRight + 1);
     }
 
-    private static boolean check(Map<Character, Integer> m1, Map<Character, Integer> m2) {
+    private static boolean check(Map<Character, Integer> minMap, Map<Character, Integer> maxMap) {
 
-        Set<Character> keys = m1.keySet();
+        Set<Character> keys = minMap.keySet();
 
         for (Character key : keys) {
-            if (!m2.containsKey(key) || m1.get(key) > m2.get(key)) {
+            if (!maxMap.containsKey(key) || minMap.get(key) > maxMap.get(key)) {
                 return false;
             }
         }
-
-        //System.out.println("m1=" + m1);
-        //System.out.println("m2=" + m2);
         return true;
     }
 }
