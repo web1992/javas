@@ -46,12 +46,13 @@ public class CountingSort {
         // 核心
         int[] temp = new int[len];
         for (int i = len - 1; i >= 0; i--) {
+            int val = arr[i];
             // 计算Index
-            int index = countArr[arr[i]] - 1;
+            int index = countArr[val] - 1;
             // 设置Index处的值
-            temp[index] = arr[i];
+            temp[index] = val;
             // 更新count-1
-            countArr[arr[i]]--;
+            countArr[val]--;
         }
 
         // 4:第四步
