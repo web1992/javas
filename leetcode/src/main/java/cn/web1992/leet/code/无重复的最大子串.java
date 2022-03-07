@@ -18,20 +18,21 @@ public class 无重复的最大子串 {
 
     private static int getMinStr(String str) {
 
+        // map 计数
         Map<Character, Integer> map = new HashMap<>();
 
         int begin = 0;
         int maxLength = -1;
 
-
         for (int j = 0; j < str.length(); j++) {
             char ch = str.charAt(j);
-            map.merge(ch, 1, Integer::sum);
+            map.merge(ch, 1, Integer::sum);// 计数+1
 
-            while (map.get(ch) > 1) {
+            while (map.get(ch) > 1) {// 如果值大于2，说明存在重复的，移动begin,计数-1
                 begin++;
                 map.merge(ch, -1, Integer::sum);
             }
+            // 每次都计算
             maxLength = Math.max(maxLength, j - begin + 1);
         }
 
