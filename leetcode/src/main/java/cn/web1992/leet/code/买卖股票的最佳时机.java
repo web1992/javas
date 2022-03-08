@@ -18,16 +18,16 @@ public class 买卖股票的最佳时机 {
     private static int maxProfit(int[] prices) {
 
         int len = prices.length;
-        int[][] dp = new int[len][2];
+        int[][] dp = new int[len][2];// 二维数组，[0]=出售股票，[1]=买入股票
         // 初始化第一个
-        //          0 = 卖出股票
+        //          0 = 出售股票
         // -prices[0] = 买入股票
         dp[0] = new int[]{0, -prices[0]};
         for (int i = 1; i < len; i++) {
             int pre = i - 1;// 前一天
-            // 买入股票,     max(买入 -> 买入, 卖出 -> 买入)
-            dp[i][1] = Math.max(dp[pre][1], dp[pre][0] - prices[i]);
-            // 卖出股票,     max(卖出 -> 卖出, 买入 -> 卖出)
+            //              max(不操作，买入股票)
+            dp[i][1] = Math.max(dp[pre][1], dp[pre][0] - prices[i]);// 前一天 -> 今天
+            //              max(不操作，出售股票)
             dp[i][0] = Math.max(dp[pre][0], dp[pre][1] + prices[i]);
         }
 
