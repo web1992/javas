@@ -25,9 +25,9 @@ public class 买卖股票的最佳时机 {
         dp[0] = new int[]{0, -prices[0]};
         for (int i = 1; i < len; i++) {
             int pre = i - 1;// 前一天
-            // 买入股票,     max(买入，卖出)
+            // 买入股票,     max(买入 -> 买入, 卖出 -> 买入)
             dp[i][1] = Math.max(dp[pre][1], dp[pre][0] - prices[i]);
-            // 卖出股票,     max(卖出,买入)
+            // 卖出股票,     max(卖出 -> 卖出, 买入 -> 卖出)
             dp[i][0] = Math.max(dp[pre][0], dp[pre][1] + prices[i]);
         }
 
