@@ -41,31 +41,33 @@ public class 合并K个升序链表 {
 
 
     private static Node merge0(Node n1, Node n2) {
-        Node head = new Node();
-        Node p = head;
+        // 虚节点
+        Node dummy = new Node();
+        // 头指针，用于返回使用
+        Node head = dummy;
 
         while (n1 != null && n2 != null) {
             if (n2.val > n1.val) {
-                head.next = n1;
-                head = n1;
+                dummy.next = n1;
+                dummy = n1;
                 n1 = n1.next;
 
             } else {
-                head.next = n2;
-                head = n2;
+                dummy.next = n2;
+                dummy = n2;
                 n2 = n2.next;
             }
 
         }
         if (null != n2) {
-            head.next = n2;
+            dummy.next = n2;
         }
 
         if (null != n1) {
-            head.next = n1;
+            dummy.next = n1;
         }
 
-        return p.next;
+        return head.next;
     }
 
 
