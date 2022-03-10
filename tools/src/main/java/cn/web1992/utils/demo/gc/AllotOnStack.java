@@ -4,6 +4,7 @@ package cn.web1992.utils.demo.gc;
  */
 
 /**
+ * -XX:+UseG1GC
  * <pre>
  *     -server -Xmx15m -Xms15m -XX:+DoEscapeAnalysis -XX:+PrintGC -XX:-UseTLAB -XX:+EliminateAllocations
  * </pre>
