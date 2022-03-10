@@ -16,14 +16,16 @@ public class 合并K个升序链表 {
 
         List<Node> nodeList = new ArrayList<>();
 
+        // 初始化节点(有序的链表)
         nodeList.add(init());// 2->6
         nodeList.add(init2());// 1->4->5
         nodeList.add(init3());// 1->3->4
 
+        // 合并链表
         merge(nodeList).print();
     }
 
-    // 采用分治的思想
+    // 采用分治的思想，先找二个链表合并，合并之后放入Queue中，再进行第二次合并，一直到Queue中只有一个元素
     // 先写整体的思路，再写具体的实现
     private static Node merge(List<Node> nodeList) {
 
