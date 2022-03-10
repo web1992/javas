@@ -1,16 +1,14 @@
 package cn.web1992.leet.code;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * @author web1992
  * @date 2022/3/8  11:16 下午
  * @link {https://www.bilibili.com/video/BV19r4y167Ap}
  */
-public class 合并K个升序链表 {
+public class 合并K个升序链表2 {
     public static void main(String[] args) {
 
 
@@ -23,49 +21,10 @@ public class 合并K个升序链表 {
         merge(nodeList).print();
     }
 
-    // 采用分治的思想
-    // 先写整体的思路，再写具体的实现
     private static Node merge(List<Node> nodeList) {
 
-        Queue<Node> queue = new ArrayDeque<>(nodeList);
 
-        while (queue.size() >= 2) {
-            Node node1 = queue.poll();
-            Node node2 = queue.poll();
-            Node mergeNode = merge0(node1, node2);
-            queue.offer(mergeNode);
-        }
-
-        return queue.poll();
-    }
-
-
-    private static Node merge0(Node n1, Node n2) {
-        Node head = new Node();
-        Node p = head;
-
-        while (n1 != null && n2 != null) {
-            if (n2.val > n1.val) {
-                head.next = n1;
-                head = n1;
-                n1 = n1.next;
-
-            } else {
-                head.next = n2;
-                head = n2;
-                n2 = n2.next;
-            }
-
-        }
-        if (null != n2) {
-            head.next = n2;
-        }
-
-        if (null != n1) {
-            head.next = n1;
-        }
-
-        return p.next;
+        return null;
     }
 
 
