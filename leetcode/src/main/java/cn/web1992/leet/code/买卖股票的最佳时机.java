@@ -15,6 +15,7 @@ public class 买卖股票的最佳时机 {
     }
 
 
+    // 动态规划
     private static int maxProfit(int[] prices) {
 
         int len = prices.length;

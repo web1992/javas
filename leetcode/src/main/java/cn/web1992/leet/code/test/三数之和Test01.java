@@ -1,4 +1,4 @@
-package cn.web1992.leet.code;
+package cn.web1992.leet.code.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,52 +8,48 @@ import java.util.List;
  * @author web1992
  * @date 2022/3/2  10:30 下午
  * @link {https://www.bilibili.com/video/BV1JL411c7fU}
- * link {https://www.bilibili.com/video/BV1rb4y1U7BE }
+ * link {https://www.bilibili.com/video/BV1rb4y1U7BE}
  */
-public class 三数之和 {
+public class 三数之和Test01 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{-1, 0, 1, 2, -1, 4};
-
-        for (int[] sum : sums(arr)) {
-            System.out.println(Arrays.toString(sum));
+        for (int[] _arr : sums(arr)) {
+            System.out.println(Arrays.toString(_arr));
         }
     }
 
     // 双指针
     private static List<int[]> sums(int[] arr) {
 
-        List<int[]> list = new ArrayList<>();
+        List<int[]> ans = new ArrayList<>();
+        // [-1, -1, 0, 1, 2, 4]
         int[] arrSorted = Arrays.stream(arr).sorted().toArray();
+        int len = arrSorted.length;
 
-        for (int i = 0; i < arrSorted.length; i++) {
+        for (int i = 0; i < len; i++) {
             int left = i;
-            int right = arrSorted.length - 1;
+            int right = len - 1;
             while (left < right) {
-                int m = arrSorted[left + 1];
-                int sum = arrSorted[left] + m + arrSorted[right];
+                int sum = arrSorted[left] + arrSorted[left + 1] + arrSorted[right];
                 if (sum == 0) {
-                    list.add(new int[]{arrSorted[left], arrSorted[right], m});
-                    // 去重
+                    ans.add(new int[]{arrSorted[left], arrSorted[left + 1], arrSorted[right]});
                     while (left < right && arrSorted[left] == arrSorted[left + 1]) {
                         left++;
                     }
-                    // 去重
                     while (left < right && arrSorted[right] == arrSorted[right - 1]) {
                         right--;
                     }
-                    // 指针移动
                     left++;
                     right--;
                 } else if (sum < 0) {
                     left++;
-                } else {
-                    // sum >0
+                } else {// sum>0
                     right--;
                 }
             }
         }
 
-        return list;
+        return ans;
     }
 }
