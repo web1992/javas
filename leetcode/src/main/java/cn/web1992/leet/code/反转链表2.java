@@ -19,6 +19,8 @@ public class 反转链表2 {
     }
 
     // [1,2,3,4,5]
+    // [1->2->3->4->5]
+    // 递归
     private static Node reverse(Node node) {
 
         if (node == null || node.next == null) {
@@ -28,6 +30,7 @@ public class 反转链表2 {
         node.next.next = node;
         node.next = null;
 
+        // res 值最后一个节点
         return res;
     }
 
