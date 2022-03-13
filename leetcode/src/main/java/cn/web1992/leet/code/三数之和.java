@@ -15,25 +15,32 @@ public class 三数之和 {
     public static void main(String[] args) {
         int[] arr = new int[]{-1, 0, 1, 2, -1, 4};
 
-        for (int[] sum : sums(arr)) {
-            System.out.println(Arrays.toString(sum));
+        for (List<Integer> sum : threeSum(arr)) {
+            System.out.println(sum.toString());
         }
     }
 
     // 双指针
-    private static List<int[]> sums(int[] arr) {
+    private static List<List<Integer>> threeSum(int[] nums) {
 
-        List<int[]> list = new ArrayList<>();
-        int[] arrSorted = Arrays.stream(arr).sorted().toArray();
+        List<List<Integer>> list = new ArrayList<>();
+        int[] arrSorted = Arrays.stream(nums).sorted().toArray();
 
         for (int i = 0; i < arrSorted.length; i++) {
-            int left = i;
+            int left = i + 1;
             int right = arrSorted.length - 1;
+
+            int num = arrSorted[i];
+            if (num > 0) {
+                continue;
+            }
+            if (i > 0 && num == arrSorted[i - 1]) {
+                continue;
+            }
             while (left < right) {
-                int m = arrSorted[left + 1];
-                int sum = arrSorted[left] + m + arrSorted[right];
+                int sum = arrSorted[left] + num + arrSorted[right];
                 if (sum == 0) {
-                    list.add(new int[]{arrSorted[left], arrSorted[right], m});
+                    list.add(Arrays.asList(arrSorted[left], arrSorted[right], num));
                     // 去重
                     while (left < right && arrSorted[left] == arrSorted[left + 1]) {
                         left++;
