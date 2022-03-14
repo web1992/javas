@@ -1,11 +1,11 @@
-package cn.web1992.leet.code;
+package cn.web1992.leet.code.test;
 
 /**
  * @author web1992
  * @date 2022/3/3  10:23 下午
  * @link {https://www.bilibili.com/video/BV1eS4y1j78K}
  */
-public class 合并两个有序链表 {
+public class 合并两个有序链表Test001 {
 
     public static void main(String[] args) {
 
