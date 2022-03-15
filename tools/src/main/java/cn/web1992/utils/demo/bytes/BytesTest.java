@@ -12,7 +12,13 @@ public class BytesTest {
         byte[] bs = new byte[2];
         bs[0] = -1;
         bs[1] = 1;
-        System.out.println(bs);
+        int v = bs[0] & 0xFF;
+        System.out.println(v);
+
+        System.out.println(Integer.toHexString(v));
+        System.out.println(Integer.toHexString(-1));
+        System.out.println("-1 & 0xFF=" + Integer.toHexString(-1 & 0xFF));
+        System.out.println(Integer.toHexString(1));
     }
 
     public static String bytes2string(byte[] src) {
