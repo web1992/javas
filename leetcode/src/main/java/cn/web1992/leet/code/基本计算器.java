@@ -18,8 +18,15 @@ public class 基本计算器 {
     public static void main(String[] args) {
 
         String str = "(1+(4+5+2)-3)+(6+8)";
-        int ans = calculate(str);
-        System.out.println("ans=" + ans);
+        //int ans = calculate(str);
+        //System.out.println("ans=" + ans);
+
+        //str = "2147483647";
+        //System.out.println(calculate(str));
+
+        str = "- (3 + (4 + 5))";
+        System.out.println(calculate(str));
+
     }
 
 
@@ -28,7 +35,7 @@ public class 基本计算器 {
         int sum = 0;
         int sign = 1;// 1 =加发，-1=减法
         Stack<Integer> stack = new Stack<>();
-        int temp = 0;
+        String temp = "";
         int i = 0;
         while (i < s.length()) {
             char ch = s.charAt(i);
@@ -37,11 +44,11 @@ public class 基本计算器 {
             } else if (ch == ')') {
                 Integer preSign = stack.pop();// 符号
                 Integer preSum = stack.pop();// sum
-                sum = sum + preSum * preSign;
+                sum = sum * preSign + preSum;
                 i++;
             } else if (ch == '(') {
                 stack.push(sum);// sum
-                stack.push(1);// 符号
+                stack.push(sign);// 符号
                 sum = 0;
                 sign = 1;
                 i++;
@@ -54,12 +61,12 @@ public class 基本计算器 {
             } else {
                 i++;
                 // 数字
-                temp = parseNum(ch);
+                temp = (ch) + "";
                 while (i < s.length() && isNum(s.charAt(i))) {
-                    temp += parseNum(s.charAt(i));
+                    temp += s.charAt(i);
                     i++;
                 }
-                sum += temp * sign;
+                sum += parseNum(temp) * sign;
             }
 
             // System.out.println(sum);
@@ -68,8 +75,8 @@ public class 基本计算器 {
         return sum;
     }
 
-    private static int parseNum(char ch) {
-        return Integer.parseInt(ch + "");
+    private static int parseNum(String ch) {
+        return Integer.parseInt(ch);
     }
 
     private static boolean isNum(char ch) {
