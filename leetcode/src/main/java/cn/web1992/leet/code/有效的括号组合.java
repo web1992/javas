@@ -9,6 +9,17 @@ import java.util.List;
  * @date 2022/3/21  8:50 上午
  * @link {https://www.bilibili.com/video/BV1Y44y1s7zn}
  * @link {https://leetcode-cn.com/problems/bracket-lcci/}
+ *
+ * <pre>
+ * 输入：3
+ *
+ * 输出：
+ * ((()))
+ * (()())
+ * (())()
+ * ()(())
+ * ()()()
+ * </pre>
  */
 public class 有效的括号组合 {
 
@@ -16,7 +27,7 @@ public class 有效的括号组合 {
     public static void main(String[] args) {
 
 
-        for (String an : generateParenthesis(3)) {
+        for (String an : generateParenthesis(2)) {
             System.out.println(an);
         }
     }
@@ -46,6 +57,7 @@ public class 有效的括号组合 {
                             int l) {
 
         if (2 * n == cur.size()) {
+            // 括号是成对的，因此 size = 2倍的n
             listAns.add(String.join("", cur));
             return;
         }
