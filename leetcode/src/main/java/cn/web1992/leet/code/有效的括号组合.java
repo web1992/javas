@@ -63,13 +63,13 @@ public class 有效的括号组合 {
         }
 
         if (n - l > 0) {
-            List<String> _list = new ArrayList<>(cur);
+            List<String> _list = new ArrayList<>(cur);// 以上一个数据为基础，加上左括号括号，然后继续递归(计算所有的组合)
             _list.add("(");
             run(listAns, _list, n, r, l + 1);
         }
 
         if (n - r > 0 && r < l) {
-            List<String> _list = new ArrayList<>(cur);
+            List<String> _list = new ArrayList<>(cur);// 以上一个数据为基础，加上右括号括号，然后继续递归
             _list.add(")");
             run(listAns, _list, n, r + 1, l);
         }
