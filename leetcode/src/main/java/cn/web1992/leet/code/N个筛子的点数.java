@@ -32,7 +32,7 @@ public class N个筛子的点数 {
 
         // 一个筛子有6个点数，6^n 筛子点数的总的情况
         double total = Math.pow(6, n);
-        double[] ans = new double[6 * n];
+        double[] ans = new double[6 * n - n + 1];
 
         // 初始化缓存
         // 第一维是筛子的个数
