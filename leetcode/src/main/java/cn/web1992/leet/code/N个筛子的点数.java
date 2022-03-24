@@ -35,6 +35,8 @@ public class N个筛子的点数 {
         double[] ans = new double[6 * n];
 
         // 初始化缓存
+        // 第一维是筛子的个数
+        // 第二维是筛子的点数之和
         int[][] cache = new int[n + 1][6 * n + 1];
         for (int i = 0; i < cache.length; i++) {
             for (int j = 0; j < 6 * n + 1; j++) {
@@ -59,7 +61,7 @@ public class N个筛子的点数 {
     /**
      * @param n   筛子的个数
      * @param sum 筛子的点数的之和
-     * @return 筛子的个数=num时，筛子的点数=sum 的情况
+     * @return 筛子的个数=n，筛子的点数=sum 的情况
      */
     private int getCount(int[][] cache, int n, int sum) {
         // 3 个筛子，和为14的情况
@@ -73,10 +75,13 @@ public class N个筛子的点数 {
         }
 
         int result = 0;
+        // 此处的i为筛子的点数
         for (int i = 1; i <= 6 && sum - i >= n - 1; i++) {
             if (cache[n - 1][sum - i] != -1) {
                 result += cache[n - 1][sum - i];
             } else {
+                // n-1   减去当前的筛子个数
+                // sum-i 前去当前筛子的点数
                 int c = getCount(cache, n - 1, sum - i);
                 cache[n - 1][sum - i] = c;
                 result += c;
