@@ -25,6 +25,8 @@ public class 走台阶 {
             return 2;
         }
 
-        return run(n - 1) + run(n - 2);
+
+        return run(n - 1) //  // 一次走1个台阶
+                + run(n - 2); // 一次走2个台阶
     }
 }
