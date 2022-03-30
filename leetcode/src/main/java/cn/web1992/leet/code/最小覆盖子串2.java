@@ -4,6 +4,7 @@ package cn.web1992.leet.code;
  * @author web1992
  * @implNote 最小覆盖子串
  * @link {https://www.bilibili.com/video/BV1qX4y1V7EC}
+ * @link {https://leetcode-cn.com/problems/minimum-window-substring/}
  * @date 2022/2/25  9:29 下午
  */
 public class 最小覆盖子串2 {
@@ -31,7 +32,7 @@ public class 最小覆盖子串2 {
         int right = 0;
         int start = 0;
         int minWindow = Integer.MAX_VALUE;
-        int count = minLen;
+        int leftCount = minLen;
 
         for (int i = 0; i < minLen; i++) {
             map[minStr.charAt(i)]++;
@@ -40,17 +41,17 @@ public class 最小覆盖子串2 {
         while (right < maxLen) {
             char c = maxStr.charAt(right++);// 移动right指针
             if (map[c]-- > 0) {
-                count--;
+                leftCount--;
             }
 
-            while (count == 0) {
+            while (leftCount == 0) {
                 if (right - left < minWindow) {
                     minWindow = right - left;
                     start = left;
                 }
                 c = maxStr.charAt(left++);// 移动left指针
                 if (map[c]++ >= 0) {
-                    count++;
+                    leftCount++;
                 }
 
             }
