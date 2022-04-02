@@ -1,4 +1,4 @@
-package cn.web1992.leet.code;
+package cn.web1992.leet.code.test;
 
 /**
  * @author web1992
@@ -7,22 +7,17 @@ package cn.web1992.leet.code;
  * @link {https://leetcode-cn.com/problems/minimum-window-substring/}
  * @date 2022/2/25  9:29 下午
  */
-public class 最小覆盖子串2 {
+public class 最小覆盖子串Test002 {
     public static void main(String[] args) {
         String target = "ABC";
         String searchTxt = "ADOBECODEBANC";
 
-        String search = search(searchTxt, target);
+        String search = minWindow(searchTxt, target);
         System.out.println(search);
-        assert "BANC".equalsIgnoreCase(search);
     }
 
 
-    private static String search(String maxStr, String minStr) {
-
-        if (maxStr.length() <= 0 || maxStr.length() < minStr.length()) {
-            return "";
-        }
+    public static String minWindow(String maxStr, String minStr) {
 
         int minLen = minStr.length();
         int maxLen = maxStr.length();
@@ -38,28 +33,27 @@ public class 最小覆盖子串2 {
             map[minStr.charAt(i)]++;
         }
 
+
         while (right < maxLen) {
-            char c = maxStr.charAt(right++);// 移动right指针
-            if (map[c]-- > 0) {
+            char c = maxStr.charAt(right++);
+            if (map[c]-- > 0) { // 重点（默认是0）
                 minCount--;
             }
 
             while (minCount == 0) {
-                if (right - left < minWindow) {
-                    minWindow = right - left;
+                if (minWindow > right - left) {
                     start = left;
+                    minWindow = right - left;
                 }
-                c = maxStr.charAt(left++);// 移动left指针
-                if (map[c]++ >= 0) {
+
+                c = maxStr.charAt(left++);
+                if (map[c]++ >= 0) { // 重点
                     minCount++;
                 }
-
             }
-
         }
 
         return minWindow == Integer.MAX_VALUE ? "" : maxStr.substring(start, start + minWindow);
-
     }
 
 
