@@ -11,18 +11,13 @@ import java.util.Stack;
 public class 移掉K位数字 {
 
     public static void main(String[] args) {
-        System.out.println(new 移掉K位数字().removeKdigits("112", 1));
+        System.out.println(new 移掉K位数字().removeKdigits("9", 1));
     }
 
     // 1432219 , k=3
     public String removeKdigits(String num, int k) {
 
         char[] chars = num.toCharArray();
-
-        if (k == num.length()) {
-            return "0";
-        }
-
         Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < num.length(); i++) {
