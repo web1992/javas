@@ -7,23 +7,25 @@ import java.util.List;
 /**
  * @author web1992
  * @date 2022/3/2  10:30 下午
+ * @link {https://leetcode-cn.com/problems/3sum/}
  * @link {https://www.bilibili.com/video/BV1JL411c7fU}
- * link {https://www.bilibili.com/video/BV1rb4y1U7BE }
+ * @link {https://www.bilibili.com/video/BV1rb4y1U7BE }
  */
 public class 三数之和 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{-1, 0, 1, 2, -1, 4};
 
-        for (List<Integer> sum : threeSum(arr)) {
+        for (List<Integer> sum : new 三数之和().threeSum(arr)) {
             System.out.println(sum.toString());
         }
     }
 
     // 双指针
-    private static List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum(int[] nums) {
 
         List<List<Integer>> list = new ArrayList<>();
+        // 排序
         int[] arrSorted = Arrays.stream(nums).sorted().toArray();
 
         for (int i = 0; i < arrSorted.length; i++) {
