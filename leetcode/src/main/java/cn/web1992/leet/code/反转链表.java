@@ -19,7 +19,7 @@ public class 反转链表 {
         reverse(node).print();
     }
 
-    // [1,2,3,4,5]
+    // [1->2->3->4->5]
     private static Node reverse(Node node) {
 
         if (node == null || node.next == null) {

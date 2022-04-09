@@ -19,13 +19,13 @@ public class 买卖股票的最佳时机2 {
     // 贪心，用左侧最低点作为买入点，比较右侧-左侧最低点的最大值就是所求最大利润
     public static int maxProfitGreedy(int[] prices) {
         int min = Integer.MAX_VALUE;
-        int max = 0;
+        int maxProfit = 0;
         for (int i = 0; i < prices.length; i++) {
             min = Math.min(min, prices[i]);
             int profit = prices[i] - min;
-            max = Math.max(max, profit);
+            maxProfit = Math.max(maxProfit, profit);
         }
 
-        return max;
+        return maxProfit;
     }
 }
