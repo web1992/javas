@@ -11,13 +11,13 @@ public class 买卖股票的最佳时机2 {
 
         int[] prices = new int[]{7, 1, 5, 3, 6, 4};
 
-        System.out.println(maxProfitGreedy(prices));
+        System.out.println(new 买卖股票的最佳时机2().maxProfit(prices));
 
     }
 
 
     // 贪心，用左侧最低点作为买入点，比较右侧-左侧最低点的最大值就是所求最大利润
-    public static int maxProfitGreedy(int[] prices) {
+    public static int maxProfit(int[] prices) {
         int min = Integer.MAX_VALUE;
         int maxProfit = 0;
         for (int i = 0; i < prices.length; i++) {
