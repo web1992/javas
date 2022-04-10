@@ -74,21 +74,23 @@ public class N个筛子的点数 {
             return cache[n][sum];
         }
 
-        int result = 0;
-        // 此处的i为筛子的点数
-        for (int i = 1; i <= 6 && sum - i >= n - 1; i++) {
-            if (cache[n - 1][sum - i] != -1) {
-                result += cache[n - 1][sum - i];
+        int count = 0;
+        // 此处的 point 为筛子的点数
+        // sum - i >= n - 1 => (剩下的筛子和 >= 剩余筛子的个数)
+        // point 1-6 点
+        for (int point = 1; point <= 6 && sum - point >= n - 1; point++) {
+            if (cache[n - 1][sum - point] != -1) {
+                count += cache[n - 1][sum - point];
             } else {
-                // n-1   减去当前的筛子个数
-                // sum-i 前去当前筛子的点数
-                int c = getCount(cache, n - 1, sum - i);
-                cache[n - 1][sum - i] = c;
-                result += c;
+                // n-1   消耗一个筛子
+                // sum-point 减去当前筛子的点数
+                int c = getCount(cache, n - 1, sum - point);
+                cache[n - 1][sum - point] = c;// 放入cache
+                count += c;
             }
         }
 
-        return result;
+        return count;
     }
 
 }
