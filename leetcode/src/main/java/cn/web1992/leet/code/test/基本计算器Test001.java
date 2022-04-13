@@ -1,4 +1,4 @@
-package cn.web1992.leet.code;
+package cn.web1992.leet.code.test;
 
 
 import java.util.Stack;
@@ -13,7 +13,7 @@ import java.util.Stack;
  *     结果：= 23
  * </pre>
  */
-public class 基本计算器 {
+public class 基本计算器Test001 {
 
     public static void main(String[] args) {
 
@@ -21,8 +21,8 @@ public class 基本计算器 {
         int ans = calculate(str);
         System.out.println("ans=" + ans);
 
-        //str = "2147483647";
-        //System.out.println(calculate(str));
+        str = "2147483647";
+        System.out.println(calculate(str));
 
         str = "- (3 + (4 + 5))";
         System.out.println(calculate(str));
@@ -30,46 +30,39 @@ public class 基本计算器 {
     }
 
 
+    // 0+00 (1+(4+5+2)-3)+(6+8)
     public static int calculate(String s) {
 
         int sum = 0;
-        int sign = 1;// 1 =加发，-1=减法
+        int sign = 1;
         Stack<Integer> stack = new Stack<>();
-        String temp = "";
-        int i = 0;
-        while (i < s.length()) {
+
+        for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             if (ch == ' ') {
-                i++;
-            } else if (ch == ')') {
-                Integer preSign = stack.pop();// 符号
-                Integer preSum = stack.pop();// sum
-                sum = sum * preSign + preSum;
-                i++;
+                continue;
             } else if (ch == '(') {
-                stack.push(sum);// sum
-                stack.push(sign);// 符号
+                stack.push(sign);
+                stack.push(sum);
                 sum = 0;
                 sign = 1;
-                i++;
+            } else if (ch == ')') {
+                int preSum = stack.pop();
+                int preSign = stack.pop();
+                sum = sum * preSign + preSum;
             } else if (ch == '+') {
                 sign = 1;
-                i++;
             } else if (ch == '-') {
                 sign = -1;
-                i++;
             } else {
-                i++;
-                // 数字
-                temp = (ch) + "";
-                while (i < s.length() && isNum(s.charAt(i))) {
-                    temp += s.charAt(i);
+                String temp = "";
+                while (i < s.length() && isNum(ch = s.charAt(i))) {
+                    temp += ch;
                     i++;
                 }
-                sum += parseNum(temp) * sign;
+                i--;
+                sum = sum + parseNum(temp) * sign;
             }
-
-            // System.out.println(sum);
         }
 
         return sum;
