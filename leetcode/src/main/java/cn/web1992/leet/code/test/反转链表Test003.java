@@ -1,4 +1,4 @@
-package cn.web1992.leet.code;
+package cn.web1992.leet.code.test;
 
 /**
  * @author web1992
@@ -6,32 +6,38 @@ package cn.web1992.leet.code;
  * @implNote 反转链表
  * @link {https://www.bilibili.com/video/BV1JS4y1Z7Lu}
  */
-public class 反转链表2 {
+public class 反转链表Test003 {
 
     public static void main(String[] args) {
 
         Node node = init();
         node.print();
 
-
         // 反转
         reverse(node).print();
     }
 
-    // [1,2,3,4,5]
     // [1->2->3->4->5]
-    // 递归
+    // temp
+    // [1->2->3->4->5]
+    // 临时节点
     private static Node reverse(Node node) {
 
         if (node == null || node.next == null) {
             return node;
         }
-        Node res = reverse(node.next);
-        node.next.next = node;
-        node.next = null;
+        Node temp = null;
+        Node cur = node;
+        Node next = null;
 
-        // res 值最后一个节点
-        return res;
+        while (cur != null) {
+            next = cur.next;
+            cur.next = temp;
+            temp = cur;
+            cur = next;
+        }
+
+        return temp;
     }
 
     private static Node init() {
