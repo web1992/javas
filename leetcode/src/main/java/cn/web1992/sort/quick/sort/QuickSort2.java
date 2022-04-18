@@ -33,7 +33,9 @@ public class QuickSort2 {
     private static int part(int[] arr, int left, int right) {
 
         int p = left + 1;
-        for (int i = p; i <= right; i++) {
+        int i = p;
+
+        for (; i <= right; i++) {
             if (arr[i] < arr[left]) {
                 swap(arr, i, p);
                 p++;
