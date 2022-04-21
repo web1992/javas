@@ -30,19 +30,27 @@ public class 快速排序 {
         sort0(arr, p + 1, end);
     }
 
+    // 1. 选择p点
+    // 2. 大于p的放右边，小于p的放左边
+    // 3. 递归处理
     public static int part(int[] arr, int start, int end) {
 
-        int p = start + 1;
-        int i = p;
+        int pivot = arr[end];
+        int i = start;
 
-        for (; i <= end; i++) {
-            if (arr[i] < arr[start]) {
-                swap(arr, i, p);
-                p++;
+        for (int j = start; j < end; j++) {
+            if (arr[j] < pivot) {
+                if (j == i) {
+                    i++;
+                    continue;
+                }
+                swap(arr, i, j);
+                i++;
             }
         }
-        swap(arr, start, p - 1);
-        return p - 1;
+
+        swap(arr, i, end);
+        return i;
     }
 
 
