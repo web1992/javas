@@ -34,19 +34,19 @@ public class 堆排序 {
 
     /**
      * @param arr
-     * @param len 数组长度
-     * @param i   从哪个元素开始 堆化
+     * @param len         数组长度
+     * @param parentIndex 从哪个元素开始 堆化
      * @implNote 数组 堆化
      */
-    public static void heapify(int[] arr, int len, int i) {
+    public static void heapify(int[] arr, int len, int parentIndex) {
 
-        if (i >= len) {
+        if (parentIndex >= len) {
             return;
         }
 
-        int c1 = 2 * i + 1;
-        int c2 = 2 * i + 2;
-        int max = i;
+        int c1 = 2 * parentIndex + 1;
+        int c2 = 2 * parentIndex + 2;
+        int max = parentIndex;
 
         if (c1 < len && arr[max] < arr[c1]) {
             max = c1;
@@ -56,8 +56,8 @@ public class 堆排序 {
             max = c2;
         }
 
-        if (max != i) {
-            swap(arr, max, i);
+        if (max != parentIndex) {
+            swap(arr, max, parentIndex);
             heapify(arr, len, max);
         }
 
