@@ -12,6 +12,8 @@ public class 二分查找 {
         int num = find(arr, -2);
 
         System.out.println("num=" + num);
+        System.out.println("num=" + find(arr, 99));
+        System.out.println("num=" + find(arr, 34));
     }
 
     public static int find(int[] arr, int num) {
@@ -25,7 +27,7 @@ public class 二分查找 {
             } else if (arr[m] > num) {
                 right = m - 1;
             } else {
-                return arr[m];
+                return m;
             }
         }
         return -1;
