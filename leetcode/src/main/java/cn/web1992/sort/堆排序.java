@@ -6,6 +6,9 @@ import java.util.Arrays;
  * @author web1992
  * @date 2022/4/18  10:21
  * @link {https://www.bilibili.com/video/BV1Eb41147dK}
+ * <pre>
+ *  堆的应用：优先级队列、求 Top K 和求中位数。
+ * </pre>
  */
 public class 堆排序 {
 
@@ -28,7 +31,7 @@ public class 堆排序 {
         // 把最【后一个元素】与【第一个元素】进行交换，然后继续进行 堆化 操作
         // 从后往前进行 堆化 操作
         for (int j = arr.length - 1; j >= 0; j--) {
-            swap(arr, j, 0);
+            swap(arr, j, 0);// 默认是最大堆，下标=0的位置，是最大的元素，这里进行交换，然后继续 堆化
             heapify(arr, j, 0);
         }
 
@@ -72,7 +75,7 @@ public class 堆排序 {
 
         // 从下往上进行堆的构造
         int lastNode = len - 1;
-        // 找打最后一个parent
+        // 找到最后一个parent
         int parent = (lastNode - 1) / 2;
 
         for (int i = parent; i >= 0; i--) {
