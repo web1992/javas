@@ -4,7 +4,7 @@ package cn.web1992.leet.code;
  * @author web1992
  * @date 2022/4/22  14:56
  */
-public class 第K大元素 {
+public class 第K小元素 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 1, 2};
