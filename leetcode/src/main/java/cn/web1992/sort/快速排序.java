@@ -5,6 +5,8 @@ import java.util.Arrays;
 /**
  * @author web1992
  * @date 2022/4/18  10:20
+ * @implNote 分治思想
+ * @link {https://www.bilibili.com/video/BV1WF41187Bp} 视频讲解
  */
 public class 快速排序 {
 
