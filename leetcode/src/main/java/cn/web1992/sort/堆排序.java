@@ -23,8 +23,10 @@ public class 堆排序 {
     }
 
     public static void sort0(int[] arr) {
+        // 构造堆
         buildHeap(arr);
-
+        // 把最【后一个元素】与【第一个元素】进行交换，然后继续进行 堆化 操作
+        // 从后往前进行 堆化 操作
         for (int j = arr.length - 1; j >= 0; j--) {
             swap(arr, j, 0);
             heapify(arr, j, 0);
@@ -33,7 +35,7 @@ public class 堆排序 {
     }
 
     /**
-     * @param arr
+     * @param arr         数组
      * @param len         数组长度
      * @param parentIndex 从哪个元素开始 堆化
      * @implNote 数组 堆化
@@ -68,7 +70,9 @@ public class 堆排序 {
 
         int len = arr.length;
 
+        // 从下往上进行堆的构造
         int lastNode = len - 1;
+        // 找打最后一个parent
         int parent = (lastNode - 1) / 2;
 
         for (int i = parent; i >= 0; i--) {
