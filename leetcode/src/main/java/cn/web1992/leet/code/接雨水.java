@@ -9,6 +9,7 @@ package cn.web1992.leet.code;
 public class 接雨水 {
 
     public static void main(String[] args) {
+        // [4,2,0,3,2,5]
         int[] arr = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         System.out.println("trap = " + trap2(arr));
 
@@ -44,8 +45,8 @@ public class 接雨水 {
 
         int len = height.length;
         int ans = 0;
-        int left = 1;
-        int right = len - 2;
+        int left = 0;
+        int right = len - 1;
 
         int leftMax = height[left];
         int rightMax = height[right];
