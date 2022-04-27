@@ -7,6 +7,19 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /**
+ * <pre>
+ * 1，合并有序小文件
+ * https://github.com/kkzfl22/datastruct/tree/master/src/main/java/com/liujun/datastruct/heap/solution/margeSmailFile
+ * 2，高性能定时器的应用
+ * https://github.com/kkzfl22/datastruct/tree/master/src/main/java/com/liujun/datastruct/heap/solution/highTimeSchedule
+ * 3，求topk
+ * https://github.com/kkzfl22/datastruct/tree/master/src/main/java/com/liujun/datastruct/heap/solution/topK
+ * 4，求中位数
+ * https://github.com/kkzfl22/datastruct/tree/master/src/main/java/com/liujun/datastruct/heap/solution/midnum
+ * 5 ,大文件的关键字的统计
+ * https://github.com/kkzfl22/datastruct/tree/master/src/main/java/com/liujun/datastruct/heap/solution/bigFileTopN
+ * </pre>
+ *
  * @author web1992
  * @date 2022/4/27  16:05
  */
