@@ -19,13 +19,21 @@ public class 走台阶_动态规划 {
 
     public static int climbStairs(int n) {
 
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 2;
+        }
+
         int[] dp = new int[n + 1];
         // dp[i]:台阶为i时，有几种走法
         // 初始化
-        dp[0] = 1;
         dp[1] = 1;
+        dp[2] = 2;
 
-        for (int i = 2; i <= n; i++) {
+        // 从3开始
+        for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
 
