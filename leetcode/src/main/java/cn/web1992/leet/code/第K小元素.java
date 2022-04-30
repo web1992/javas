@@ -12,7 +12,7 @@ public class 第K小元素 {
         System.out.println("findK=" + findK(arr, 2));
     }
 
-    // 第K大元素
+    // 第K小元素
     public static int findK(int[] arr, int k) {
 
         int len = arr.length - 1;
