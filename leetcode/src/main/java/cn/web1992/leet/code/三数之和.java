@@ -9,7 +9,8 @@ import java.util.List;
  * @date 2022/3/2  10:30 下午
  * @link {https://leetcode-cn.com/problems/3sum/}
  * @link {https://www.bilibili.com/video/BV1JL411c7fU}
- * @link {https://www.bilibili.com/video/BV1rb4y1U7BE }
+ * @link {https://www.bilibili.com/video/BV1rb4y1U7BE}
+ * @link {https://www.bilibili.com/video/BV1PL4y177Pg} 三数之和 搞笑版
  */
 public class 三数之和 {
 
