@@ -1,5 +1,7 @@
 package cn.web1992.leet.code;
 
+import java.util.Arrays;
+
 /**
  * @author web1992
  * @date 2022/3/7  11:05 下午
@@ -11,7 +13,8 @@ public class 买卖股票的最佳时机2 {
 
         int[] prices = new int[]{7, 1, 5, 3, 6, 4};
 
-        System.out.println(new 买卖股票的最佳时机2().maxProfit(prices));
+        //System.out.println(maxProfit(prices));
+        System.out.println(new Solution().maxProfit(prices));
 
     }
 
@@ -32,7 +35,8 @@ public class 买卖股票的最佳时机2 {
         return dp0;
     }
 
-    class Solution {
+    // 动态规划
+    static class Solution {
         public int maxProfit(int[] prices) {
             int n = prices.length;
             int[][] dp = new int[n][2];
@@ -42,6 +46,12 @@ public class 买卖股票的最佳时机2 {
                 dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
                 dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
             }
+
+            for (int i = 0; i < dp.length; i++) {
+                System.out.print(Arrays.toString(dp[i]));
+                System.out.println();
+            }
+            System.out.println();
             return dp[n - 1][0];
         }
     }
