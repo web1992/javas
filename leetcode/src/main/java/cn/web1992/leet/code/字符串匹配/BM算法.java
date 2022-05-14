@@ -25,25 +25,7 @@ public class BM算法 {
         if (mLen > haystack.length()) {
             return -1;
         }
-
-
-        // hello
-        // ll
-        for (int i = 0; i + mLen <= haystack.length(); i++) {
-
-            boolean f = true;
-            for (int j = 0; j < mLen; j++) {
-                if (haystack.charAt(i + j) != needle.charAt(j)) {
-                    f = false;
-                    break;
-                }
-            }
-            if(f){
-                return i;
-            }
-        }
-
-
+        // todo
         return -1;
     }
 

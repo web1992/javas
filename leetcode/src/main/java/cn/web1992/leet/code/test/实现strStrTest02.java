@@ -28,7 +28,7 @@ public class 实现strStrTest02 {
 
 
         int[] next = getNext(needle);
-        System.out.println(Arrays.toString(next));
+        //System.out.println(Arrays.toString(next));
 
         int j = 0;
         for (int i = 0; i < haystack.length(); i++) {
