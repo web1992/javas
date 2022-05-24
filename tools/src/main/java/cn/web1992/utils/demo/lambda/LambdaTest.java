@@ -33,6 +33,7 @@ public class LambdaTest {
 
     public static void main(String[] args) {
 
+        System.setProperty("jdk.internal.lambda.dumpProxyClasses", ".");
         LambdaTest lambdaTest = new LambdaTest();
 
         Runnable r = () -> {
