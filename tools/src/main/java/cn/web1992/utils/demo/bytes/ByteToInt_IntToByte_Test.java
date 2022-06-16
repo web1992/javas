@@ -19,9 +19,9 @@ public class ByteToInt_IntToByte_Test {
         int c = bytes2intBuggy(bytes);
         int d = bytes2int2(bytes);
 
-        System.out.println("b=" + b);
-        System.out.println("c=" + c);
-        System.out.println("d=" + d);
+        System.out.println("bytes2int b=" + b);
+        System.out.println("bytes2intBuggy c=" + c);
+        System.out.println("bytes2int2 d=" + d);
         System.out.println();
 
         System.out.println("12=" + Integer.toBinaryString(-num));
@@ -77,7 +77,7 @@ public class ByteToInt_IntToByte_Test {
 
     // 如果把+替换成 |，则不需要 & 0xFF。
     public static int bytes2int2(byte[] b) {
-        return (b[3] << 0) |
+        return (b[3]  << 0) |
                 (b[2] << 8) |
                 (b[1] << 16) |
                 (b[0] << 24);
@@ -85,16 +85,6 @@ public class ByteToInt_IntToByte_Test {
 
     // 有bug 的实现
     public static int bytes2intBuggy(byte[] b) {
-        // (在采用补码的机器上) 强制类型转换的结果保持位值不变，只是改变了解释这些位的方式。
-        System.out.println("bytes2intBuggy=" + Integer.toBinaryString(b[3] << 0));
-        System.out.println("bytes2intBuggy=" + Integer.toBinaryString(b[2] << 8));
-        System.out.println("bytes2intBuggy=" + Integer.toBinaryString(b[1] << 16));
-        System.out.println("bytes2intBuggy=" + Integer.toBinaryString(b[0] << 24));
-
-        System.out.println("bytes2intBuggy=" +(b[3] << 0));
-        System.out.println("bytes2intBuggy=" + (b[2] << 8));
-        System.out.println("bytes2intBuggy=" + (b[1] << 16));
-        System.out.println("bytes2intBuggy=" + (b[0] << 24));
         return (b[3] << 0) +
                 (b[2] << 8) +
                 (b[1] << 16) +
