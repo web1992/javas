@@ -58,7 +58,7 @@ public class ByteToInt_IntToByte_Test {
     // 12的二进制表示
     // 12=1100
 
-    // -12 补码的表示
+    // -12 补码的表示 11111111111111111111111111110100
     // b[3]=1111 1111
     // b[2]=1111 1111
     // b[1]=1111 1111
@@ -77,18 +77,28 @@ public class ByteToInt_IntToByte_Test {
 
     // 如果把+替换成 |，则不需要 & 0xFF。
     public static int bytes2int2(byte[] b) {
-        return ((b[3]) << 0) |
-                ((b[2]) << 8) |
-                ((b[1]) << 16) |
-                ((b[0]) << 24);
+        return (b[3] << 0) |
+                (b[2] << 8) |
+                (b[1] << 16) |
+                (b[0] << 24);
     }
 
     // 有bug 的实现
     public static int bytes2intBuggy(byte[] b) {
-        return ((b[3]) << 0) +
-                ((b[2]) << 8) +
-                ((b[1]) << 16) +
-                ((b[0]) << 24);
+        // (在采用补码的机器上) 强制类型转换的结果保持位值不变，只是改变了解释这些位的方式。
+        System.out.println("bytes2intBuggy=" + Integer.toBinaryString(b[3] << 0));
+        System.out.println("bytes2intBuggy=" + Integer.toBinaryString(b[2] << 8));
+        System.out.println("bytes2intBuggy=" + Integer.toBinaryString(b[1] << 16));
+        System.out.println("bytes2intBuggy=" + Integer.toBinaryString(b[0] << 24));
+
+        System.out.println("bytes2intBuggy=" +(b[3] << 0));
+        System.out.println("bytes2intBuggy=" + (b[2] << 8));
+        System.out.println("bytes2intBuggy=" + (b[1] << 16));
+        System.out.println("bytes2intBuggy=" + (b[0] << 24));
+        return (b[3] << 0) +
+                (b[2] << 8) +
+                (b[1] << 16) +
+                (b[0] << 24);
     }
 
 }
