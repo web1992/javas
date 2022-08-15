@@ -1,14 +1,17 @@
 package cn.web1992.utils.demo.files;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class FilesDemo {
     public static void main(String[] args) throws Exception {
@@ -19,15 +22,6 @@ public class FilesDemo {
         }
 
         String file = args[0];
-
-//        System.out.println(new Date().toString());
-//
-//        SimpleDateFormat s1 = new SimpleDateFormat("yyyy-MM-dd");
-//        SimpleDateFormat s2 = new SimpleDateFormat("HH:mm:ss");
-//        Date date = new Date();
-//
-//        String s = s1.format(date).toString() + "T" + s2.format(date).toString();
-//        System.out.println(s);
 
 //        String file = "D:\\dev\\github\\read";
 //        String file = "D:\\dev\\github\\read\\redis\\Redis核心";
@@ -74,6 +68,8 @@ public class FilesDemo {
      * title: "Read"
      * date:
      * draft: false
+     * tags: ["hugo2"]
+     * categories: ["ABC"]
      * ---
      *
      * @param path
@@ -83,7 +79,9 @@ public class FilesDemo {
         try {
 
 
-            String name = path.getParent().getFileName().toFile().getName();
+            File file = path.getParent().getFileName().toFile();
+            String name = file.getName();
+
 
             String line = Files.lines(path).findFirst().orElse("");
 
@@ -94,7 +92,10 @@ public class FilesDemo {
             StringBuilder sb = new StringBuilder();
             sb.append("---\n");
             sb.append("title: \"" + name + "/" + ss + "\"" + "\n");
-            //sb.append("date:");
+            // 2022-08-12T13:55:28+08:00
+            sb.append("date: " + getDateStr(path.toFile()) + "\n");
+            sb.append("tags: [\"" + name + "\"]\n");
+            sb.append("categories: [\"" + name + "\"]\n");
             sb.append("draft: false\n");
             sb.append("---\n");
 //            System.out.println(line);
@@ -109,6 +110,32 @@ public class FilesDemo {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    private static String getDateStr(File file) {
+
+        BasicFileAttributes bAttributes = null;
+        try {
+            bAttributes = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String fileName = file.getName();
+
+        // 修改时间
+        long changeTime = bAttributes.lastModifiedTime().to(TimeUnit.MILLISECONDS);
+        // 修正格式和时区
+        Date date = new Date(changeTime);
+
+        System.out.println(new Date().toString());
+
+        SimpleDateFormat s1 = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat s2 = new SimpleDateFormat("HH:mm:ss");
+        // 2022-08-12T13:55:28+08:00
+        String s = s1.format(date).toString() + "T" + s2.format(date).toString() + "+08:00";
+        System.out.println(s);
+        return s;
     }
 
     private static void appendFileHeader(byte[] header, String srcPath) throws Exception {
